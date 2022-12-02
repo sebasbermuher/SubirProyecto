@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<div th:replace="fragments/bootstrap::head2(title='Mis Reservas')" />
+	<link rel="stylesheet" type="text/css" href="static/css/totalReservas.css" th:href="@{/css/totalReservas.css}" />
+	<link rel="stylesheet" type="text/css" href="static/css/dataTable.css" th:href="@{/css/dataTable.css}" />
+	<script src="/js/dataTableRolUser.js" th:href="@{/js/dataTableRolUser.js}" defer></script>
+	<script src="/js/misreservas.js" th:href="@{/js/misreservas.js}" defer></script>
+</head>
+
+<body>
+	<header th:insert="fragments/parts::barra2"></header>
+	<div class="mx-auto col-11">
+		<div class="title">
+			<h1>Reservas<span>Reserva La Pista</span></h1>
+		</div>
+
+		<!-- MENSAJES ALERT-->
+		<div class="alert alert-success alert-dismissable" th:if="${success != null}">
+			<label th:text="${success}"></label>
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+		</div>
+		<div class="alert alert-warning alert-dismissable" th:if="${warning != null}">
+			<label th:text="${warning}"></label>
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+		</div>
+		<div class="alert alert-info alert-dismissable" th:if="${edit != null}">
+			<label th:text="${edit}"></label>
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+		</div>
+
+		<div class="table-responsive" id="mydatatable-container">
+			<table class="records_list table table-striped table-bordered table-hover text-center" id="mydatatable">
+				<thead class="table-light">
+					<tr>
+						<!-- <th>Usuario</th>
+						<th>Nombre y apellidos</th> -->
+						<th>Deporte</th>
+						<th>Pista</th>
+						<th>Fecha</th>
+						<th>Tramo horario</th>
+						<th>Estado</th>
+
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="r : ${reserva}">
+					<!--	<td th:text="${r.usuario.getUsername()}"></td>
+						<td
+							th:text="${r.usuario.getNombre() + ', ' + r.usuario.getApellido1() + ' ' + r.usuario.getApellido2()}">
+						</td> -->
+						<td th:text="${r.pista.getDeporte()}"></td>
+						<td th:text="${r.pista.getNombre()}"></td>
+						<td name="fecha" th:text="${r.getFecha()}"></td>
+						<td name="horas" th:text="${r.getHora_inicio()}"></td>
+						<td name="estado"></td>
+
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<br>
+	<br>
+	<footer th:insert="fragments/parts::pie"></footer>
+</body>
+
+</html>

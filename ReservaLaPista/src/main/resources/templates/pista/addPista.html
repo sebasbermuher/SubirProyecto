@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="fragments/bootstrap::head(title='Add Pista')"></head>
+<body>
+<header th:insert="fragments/parts::barra"></header>
+	<div class="container mt-5">
+		<h1 class="text-center mt-3">Añadir pista</h1>
+			<div class="col-6 mx-auto">		
+				<form th:action="@{/pistas/addPista}" method="post"	th:object="${pistaDTO}">
+					<h4 class="text-danger" th:if="${error!=null}" th:text="${'Nombre de pista existente'}"></h4>	
+					
+					<label for="nombre" class="form-label mt-3">Nombre</label>
+					<input type="text" class="form-control" id="nombre" name="nombre"
+						th:field="*{nombre}" required>
+						
+					<label for="deporte" class="form-label mt-3">Deporte</label>
+					<input type="text" class="form-control" id="deporte" name="deporte"
+						th:field="*{deporte}" required>	
+						
+					<label for="apertura" class="form-label mt-3">Hora de apertura</label>
+					<input type="time" class="form-control" id="apertura" name="apertura"
+						th:field="*{apertura}" >
+						
+					<label for="cierre" class="form-label mt-3">Hora de cierre</label>
+					<input type="time" class="form-control" id="cierre" name="cierre"
+						th:field="*{cierre}" >	
+
+														
+					<input type="submit" class="btn btn-primary w-100 mt-3" value="AÑADIR" />	
+				</form>
+		</div>
+	</div>
+	<br>
+	<br>
+	<footer th:insert="fragments/parts::pie"></footer>
+</body>
+</html>

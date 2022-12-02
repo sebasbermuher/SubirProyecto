@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="fragments/bootstrap::head(title='Main')"></head>
+<body>
+<header th:insert="fragments/parts::menu"></header>
+	<div class="container mt-5">
+		<div class="row mt-5 justify-content-center">
+			<div class="col-5">
+				<img sec:authorize="hasRole('ROLE_USER')" width="400px" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" class="img-fluid">
+				<img sec:authorize="hasRole('ROLE_ADMIN')" width="450px" src="https://raymanpc.com/wiki/images/1/15/Admin.png" >
+			</div>		
+		</div>
+	</div>
+</body>
+</html>

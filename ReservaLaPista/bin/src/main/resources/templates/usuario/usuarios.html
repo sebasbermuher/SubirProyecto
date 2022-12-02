@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="fragments/bootstrap::head(title='Usuarios')"></head>
+<link rel="stylesheet" type="text/css" href="static/css/usuarios.css" th:href="@{/css/usuarios.css}">
+
+<body>
+<header th:insert="fragments/parts::barra"></header>
+
+			
+			<div class="col-12">
+				<h1 class="text-center mt-3">Usuarios</h1>
+				<a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{../usuarios/addUsuario}" class="btn btn-primary btn-lg active" role="button">Añadir Usuario</a>
+				
+				<table class="table table-stripped table-hover">
+					<thead class="table-light">
+						<tr>
+							<th>ID</th>
+							<th>Username</th>
+							<th>Nombre</th>
+							<th>1er Apellido</th>
+							<th>2º Apellido</th>
+							<th>Email</th>
+							<th>Role</th>
+							<th>Fecha Nacimiento</th>
+							<th>Fecha Registro</th>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="u : ${usuario}">
+							<td th:text="${u.getId()}"></td>
+							<td th:text="${u.getUsername()}"></td>
+							<td th:text="${u.getNombre()}"></td>
+							<td th:text="${u.getApellido1()}"></td>
+							<td th:text="${u.getApellido2()}"></td>
+							<td th:text="${u.getEmail()}"></td>
+							<td th:text="${u.getRole()}"></td>
+							<td th:text="${u.getFecha_nacimiento()}"></td>
+							<td th:text="${u.getFecha_registro()}"></td>
+								
+							<td><a th:href="@{'/usuarios/edit?user='+${u.getId()}}"><i
+									class="bi bi-pen-fill"></i></a></td>
+							
+							<td><a th:href="@{'/usuarios/delete?user='+${u.getId()}}"><i
+									class="bi bi-trash-fill"></i> </a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+</body>
+</html>

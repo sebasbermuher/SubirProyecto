@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="fragments/bootstrap::head(title='Editar Pista')"></head>
+<body>
+<header th:insert="fragments/parts::barra"></header>
+
+	<div class="container mt-5">
+		<div class="row mt-5 justify-content-center">
+			<div class="col-6">
+				<form th:action="@{/pistas/edit}" method="post"	th:object="${pista}">
+					
+					<label for="id" class="form-label mt-3">Id</label>
+					<input type="text" class="form-control" id="id" name="id"
+						th:field="*{id}" readonly>
+					
+					<label for="nombre" class="form-label mt-3">Nombre</label>
+					<input type="text" class="form-control" id="nombre" name="nombre"
+						th:field="*{nombre}" required>
+						
+					<label for="deporte" class="form-label mt-3">Deporte</label>
+					<input type="text" class="form-control" id="deporte" name="deporte"
+						th:field="*{deporte}" required>
+					
+					<label for="apertura" class="form-label mt-3">Hora de apertura</label>
+					<input type="time" class="form-control" id="apertura" name="apertura"
+						th:field="*{apertura}" required>
+						
+					<label for="cierre" class="form-label mt-3">Hora de cierre</label>
+					<input type="time" class="form-control" id="cierre" name="cierre"
+						th:field="*{cierre}" required>	
+						
+					<label for="duracion" class="form-label mt-3">Duracion</label>
+					<input type="time" class="form-control" id="duracion" name="duracion"
+						th:field="*{duracion}" required>
+
+					<input type="submit" class="btn btn-primary w-100 mt-3" value="EDITAR" />
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

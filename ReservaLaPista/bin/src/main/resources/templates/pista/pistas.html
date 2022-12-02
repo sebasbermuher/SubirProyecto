@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="fragments/bootstrap::head(title='Pistas')"></head>
+
+<body>
+<header th:insert="fragments/parts::barra"></header>
+
+			
+			<div class="col-12">
+				<h1 class="text-center mt-3">Pistas</h1>
+				<a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{../pistas/addPista}" class="btn btn-primary btn-lg active" role="button">Añadir Pista</a>
+				
+				<table class="table table-stripped table-hover text-center">
+					<thead class="table-light">
+						<tr>
+							<th>ID</th>
+							<th>Nombre</th>
+							<th>Deporte</th>
+							<th>Apertura</th>
+							<th>Cierre</th>
+							<th>Duracion</th>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="p : ${pista}">
+							<td th:text="${p.getId()}"></td>
+							<td th:text="${p.getNombre()}"></td>
+							<td th:text="${p.getDeporte()}"></td>
+							<td th:text="${p.getApertura()}"></td>
+							<td th:text="${p.getCierre()}"></td>
+							<td th:text="${p.getDuracion()}"></td>
+								
+							<td><a th:href="@{'/pistas/edit?pist='+${p.getId()}}"><i
+									class="bi bi-pen-fill"></i></a></td>
+							
+							<td><a th:href="@{'/pistas/delete?pist='+${p.getId()}}"><i
+									class="bi bi-trash-fill"></i> </a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+		</div>
+	</div>
+</body>
+</html>

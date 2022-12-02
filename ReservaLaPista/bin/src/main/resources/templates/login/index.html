@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+   <head th:replace="fragments/bootstrap::head(title='ReservaLaPista')"></head>
+   <link rel="stylesheet" type="text/css" href="static/css/index.css" th:href="@{/css/index.css}">
+   <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+   <script src="/js/login.js" defer></script>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap" rel="stylesheet">
+   <body>
+      <div class="login-page">
+         <div class="form">
+            <form class="login-form" th:action="@{/login}" method="post">
+               <input type="text" placeholder="Usuario" id="username" name="username" class="form-control inputlogin" />
+               <div class="input-group">
+                  <input type="password" placeholder="Contraseña" id="password" name="password"  class="inputlogin form-control"/>
+                  <div class="input-group-prepend">
+                     <a><span onclick="myFunction()" class="input-group-text inputlogin"><i id="ojo" class="bi bi-eye"></i></span></a>
+                  </div>
+               </div>
+               <div th:if="${param.error}" class="alert alert-danger">Usuario y contraseña inválidos.</div>
+               <div th:if="${param.logout}" class="alert alert-success">Se ha cerrado la sesión.</div>
+               <button>login</button>
+               <p class="message">¿No estás registrado? <a href="/register" >Crear una cuenta</a></p>
+            </form>
+         </div>
+      </div>
+   </body>
+</html>

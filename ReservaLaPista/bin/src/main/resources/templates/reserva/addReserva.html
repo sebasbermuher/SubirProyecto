@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="fragments/bootstrap::head(title='Crear Reserva')"></head>
+<body>
+<header th:insert="fragments/parts::barra"></header>		
+	<div class="container mt-5">
+		<div class="row mt-5 justify-content-center">
+		<h1 class="text-center mt-3">Crear Reserva</h1>
+			<div class="col-6">		
+				<form th:action="@{/reservas/addReserva}" method="post"	th:object="${reservaDTO}">
+					
+					<label for="usuario" class="form-label mt-3">Usuario</label>	
+					<select name="usuario" class="form-select mt-3" th:field="*{id_usuario}">
+						<option th:each="u : ${usuario}" 
+                                th:value="${u.id} " 
+                                th:text="${u.nombre} + ', ' +${u.apellido1} + ' ' +${u.apellido2}"></option>
+					</select>
+					
+					<label for="pista" class="form-label mt-3">Pista</label>	
+					<select name="pista" class="form-select mt-3" th:field="*{id_pista}">
+						<option th:each="p : ${pista}" 
+                                th:value="${p.id} " 
+                                th:text="${p.deporte} + ' → ' +${p.nombre}"></option>
+					</select>
+					
+					<label for="fecha" class="form-label mt-3">Fecha</label>
+					<input type="date" class="form-control" id="fecha" name="fecha"
+						th:field="*{fecha}" required>
+					
+					<label for="hora_inicio" class="form-label mt-3">Hora de inicio</label>
+					<input type="time" class="form-control" id="hora_inicio" name="hora_inicio"
+						th:field="*{hora_inicio}">
+					
+					<label for="hora_fin" class="form-label mt-3">Hora fin</label>
+					<input type="time" class="form-control" id="hora_fin" name="hora_fin"
+						th:field="*{hora_fin}" >
+								
+					<input type="submit" class="btn btn-primary w-100 mt-3" value="AÑADIR" />	
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

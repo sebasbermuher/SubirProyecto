@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head th:replace="fragments/bootstrap::head(title='Ubicacion')"></head>
+<link rel="stylesheet" type="text/css" href="static/css/sobrenosotros.css" th:href="@{/css/sobrenosotros.css}">
+
+<body>
+	<header th:insert="fragments/parts::barra"></header>
+
+	<!--Rejilla responsive-->
+	<!--
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-2 col-lg-5" style="border:1px solid #000; background: #fafafa;">
+				<ul>
+					<li>6 columnas en sm</li>
+					<li>8 columnas en md</li>
+					<li>9 columnas en 1g</li>
+					<li>10 columnas en xl</li>
+				</ul>
+			</div>
+			<div class="col-sm-2 col-lg-5" style="border:1px solid #000; background: #fafafa;">
+				<ul>
+					<li>6 columnas en sm</li>
+					<li>4 columnas en md</li>
+					<li>3 columnas en 1g</li>
+					<li>2 columnas en xl</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	-->
+
+
+	<div class="frow">
+		<div class="col col1">
+			<img src="../img/favicon.png" />
+		</div>
+		<div class="col col2">
+			<h2>Reserva La Pista</h2>
+			<p><u>ReservaLaPista</u> es una aplicación web creada por y para los deportistas que buscan pistas para
+				desarrollar
+				su
+				deporte favorito.
+			</p>
+			<p>Nuestro propósito es que nuestros usuarios, conectados a nuestra web, le sea fácil e intuitivo poder
+				alquilar
+				un espacio deportivo con un simple click. </p>
+			<p>Surgimos de una idea para el Proyecto Final de Grado Superior "Desarrollo de Aplicaciones Web" del alumno
+				Sebastián Bermúdez Herrera para el instituto IES ALIXAR - Castilleja de la Cuesta(Sevilla).</p>
+		</div>
+
+	</div>
+
+	<br>
+	<br>
+	<footer th:insert="fragments/parts::pie"></footer>
+
+</body>
+
+</html>

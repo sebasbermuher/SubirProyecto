@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="fragments/bootstrap::head(title='Todas las reservas')"></head>
+<body>
+<header th:insert="fragments/parts::barra"></header>
+			<div class="col-12">
+				<h1 class="text-center mt-3">Reservas</h1>
+				<a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{../reservas/addReserva}" class="btn btn-primary btn-lg active" role="button">Crear Reserva</a>
+				<table class="table table-stripped table-hover">
+					<thead class="table-light">
+						<tr>
+							<th>Usuario</th>
+							<th>Nombre y apellidos</th>
+							<th>Deporte</th>
+							<th>Pista</th>
+							<th>Fecha</th>
+							<th>Hora de inicio</th>
+							<th>Hora fin</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="r : ${reserva}">
+							<td th:text="${r.usuario.getUsername()}"></td>
+							<td th:text="${r.usuario.getNombre() + ', ' + r.usuario.getApellido1() + ' ' + r.usuario.getApellido2()}"></td>
+							<td th:text="${r.pista.getDeporte()}"></td>	
+							<td th:text="${r.pista.getNombre()}"></td>
+							<td th:text="${r.getFecha()}"></td>
+							<td th:text="${r.getHora_inicio()}"></td>
+							<td th:text="${r.getHora_fin()}"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>	
+</body>
+</html>
