@@ -1,7 +1,6 @@
 package org.iesalixar.servidor.controller;
 
 import java.security.Principal;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -95,6 +94,21 @@ public class LoginController {
 			} else if (usuarioService.getUsuarioByNif(usuario.getNif()) != null) {
 				return "redirect:/register?errorDNI=dni&registrado";
 			}
+		} else {
+			if (usuario.getPassword().length() < 5) {
+				return "redirect:/register?errorPassword=min5&caracters";
+			} else {
+				userBD = usuarioService.insertUsuario(userBD);
+
+				email.setTo(usuario.getEmail());
+				email.setSubject("Registro en ReservaLaPista confirmado.");
+				email.setText("Estimado/a " + usuario.getNombre() + " " + usuario.getApellido1() + " "
+						+ usuario.getApellido2()
+						+ ", \nle damos la bienvenida a nuestra aplicación web ''ReservaLaPista''. \nDesde ya puedes reservar nuestras pistas deportivas. \nMuchas gracias por su confianza. \nLe mandamos un cordial saludo. \nReservaLaPista.");
+
+				mailSender.send(email);
+			}
+
 		}
 
 		return "redirect:/";
