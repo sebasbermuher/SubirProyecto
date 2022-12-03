@@ -60,3 +60,8 @@ h1 em {
 	height: 5px;
 	background-color: #f8f8f8;
 }
+
+td > a> i{
+	font-size: 13px;
+}
+
