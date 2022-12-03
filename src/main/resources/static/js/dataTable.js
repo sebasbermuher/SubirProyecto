@@ -1,5 +1,5 @@
-$(document).ready(function() {
-	var table = $('#mydatatable').DataTable({
+document.querySelector(document).ready(function() {
+	var table = document.querySelector('#mydatatable').DataTable({
 		"dom": 'B<"float-left"i><"float-right"f>t<"float-left"l><"float-right"p><"clearfix">',
 		"responsive": false,
 		"language": {
