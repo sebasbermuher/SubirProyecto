@@ -1,10 +1,11 @@
-document.querySelector(document).ready(function() {
-	var table = document.querySelector('#mydatatable').DataTable({
+document.ready(function() {
+	let table = document.getElementById("mydatatable").DataTable({
 		"dom": 'B<"float-left"i><"float-right"f>t<"float-left"l><"float-right"p><"clearfix">',
 		"responsive": false,
 		"language": {
 			"url": "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"
 		},
+
 		"order": [
 			[0, "asc"]
 		],
