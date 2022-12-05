@@ -66,11 +66,6 @@ h1 em {
 	background-color: #f8f8f8;
 }
 
-td > a> i{
-	font-size: 13px;
-}
-
-
 
 @media screen and (max-width: 600px) {
        table {
