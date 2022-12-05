@@ -15,8 +15,4 @@ public interface UsuarioService {
 	public Usuario getUsuarioByUserName(String username);
 	public Usuario getUsuarioByEmail(String email);
 	public Usuario getUsuarioByNif(String nif);
-
-
-
-
-}
+	}

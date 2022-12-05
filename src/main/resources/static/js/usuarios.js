@@ -6,7 +6,7 @@ for (var i = 0; i < fechaDOM.length; i++) {
 	const mes = fecha.split('-')[1]
 	const dia = fecha.split('-')[2]
 
-	fechaDOM[i].innerHTML = dia + "-" + mes + "-" + año
+	fechaDOM[i].innerHTML = dia + "/" + mes + "/" + año
 }
 
 

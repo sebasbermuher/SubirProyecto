@@ -1,3 +1,8 @@
+table {
+	width: 85% !important;
+	margin: 0 auto;
+}
+
 h1 {
 	position: relative;
 	padding: 0;
@@ -64,4 +69,74 @@ h1 em {
 td > a> i{
 	font-size: 13px;
 }
+
+
+
+@media screen and (max-width: 600px) {
+       table {
+           width:100%;
+       }
+       .dataTables_info{
+		   white-space: pre-line !important;
+	   }
+       thead {
+           display: none;
+       }
+       tr:nth-of-type(2n) {
+           background-color: inherit;
+       }
+       tr td:first-child {
+           background: #505050;
+           font-weight:bold;
+       }
+       tbody td{
+           display: block;
+           text-align:center;
+       }
+       tbody td:before {
+           content: attr(data-th);
+           display: block;
+           text-align:center;
+       }
+       td:nth-of-type(1):before {
+	    content: "Id:";
+	    font-style: oblique;
+	  }
+	  td:nth-of-type(1) {
+	   color: white !important;
+	  }
+	  td:nth-of-type(2):before {
+	    content: "Username:";
+	    font-style: oblique;
+	  }
+	  td:nth-of-type(3):before {
+	    content: "Nombre:";
+	     font-style: oblique;
+	  }
+	  td:nth-of-type(4):before {
+	    content: "1er Apellido:";
+	     font-style: oblique;
+	  }
+	  td:nth-of-type(5):before {
+	    content: "2º Apellido:";
+	     font-style: oblique;
+	  }
+	  td:nth-of-type(6):before {
+	    content: "Email:";
+	     font-style: oblique;
+	  }
+	  td:nth-of-type(7):before {
+	    content: "Role:";
+	     font-style: oblique;
+	  }
+	  td:nth-of-type(8):before {
+	    content: "Fecha Nacimiento:";
+	     font-style: oblique;
+	  }
+	  td:nth-of-type(9):before {
+	    content: "Fecha Registro:";
+	     font-style: oblique;
+	  }
+}
+
 

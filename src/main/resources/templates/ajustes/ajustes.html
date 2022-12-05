@@ -1,20 +1,96 @@
 <!DOCTYPE html>
 <html>
+
 <head th:replace="fragments/bootstrap::head(title='Ajustes')"></head>
+<link rel="stylesheet" type="text/css" href="static/css/ajustes.css" th:href="@{/css/ajustes.css}">
+
 <body>
-<header th:insert="fragments/parts::barra"></header>
+	<header th:insert="fragments/parts::barra"></header>
 
 
-	<div class="container mt-5">
-		<div class="row mt-5 justify-content-center">
-			<div class="col-6">
-			</div>
-		</div>
+	<div class="col-6 mx-auto">
+		<br>
+
+		<ul class="nav justify-content-center">
+			<li class="nav-item">
+				<a class="nav-link" aria-current="page" th:href="@{/ajustes}">Mis Datos</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" th:href="@{/usuarios}">Cambiar Contraseña</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" th:href="@{/usuarios}">Eliminar Cuenta</a>
+			</li>
+		</ul>
+		
+		<form th:action="@{/usuarios/edit}" method="post" th:object="${usuario}">
+
+			<label for="id" class="form-label mt-3">Id</label>
+			<input type="text" class="form-control" id="id" name="id" th:field="*{id}" readonly>
+
+			<label for="nombre" class="form-label mt-3">Nombre</label>
+			<input type="text" class="form-control" id="nombre" name="nombre" th:field="*{nombre}" required>
+
+			<label for="apellido1" class="form-label mt-3">Primer apellido</label>
+			<input type="text" class="form-control" id="apellido1" name="apellido1" th:field="*{apellido1}" required>
+
+			<label for="apellido2" class="form-label mt-3">Segundo apellido</label>
+			<input type="text" class="form-control" id="apellido2" name="apellido2" th:field="*{apellido2}" required>
+
+			<label for="username" class="form-label mt-3">Usuario</label>
+			<input type="text" class="form-control" id="username" name="username" th:field="*{username}" required>
+
+			<label hidden for="password" class="form-label mt-3">Password</label>
+			<input hidden type="password" class="form-control" id="password" name="password" th:field="*{password}"
+				required>
+
+
+			<label for="email" class="form-label mt-3">Email</label>
+			<input type="email" class="form-control" id="email" name="email" th:field="*{email}" required>
+
+			<label for="role" class="form-label mt-3">Role</label>
+			<select class="form-select" id="role" name="role" th:field="*{role}">
+				<option value="ROLE_USER">ROLE_USER</option>
+				<option value="ROLE_ADMIN">ROLE_ADMIN</option>
+			</select>
+
+			<label for="nif" class="form-label mt-3">DNI</label>
+			<input type="text" pattern="[0-9]{8}[A-Za-z]{1}" title="Debe poner 8 números y una letra"
+				class="form-control" id="nif" name="nif" th:field="*{nif}" required>
+
+			<label for="localidad" class="form-label mt-3">Localidad</label>
+			<input type="text" class="form-control" id="localidad" name="localidad" th:field="*{localidad}" required>
+
+			<label for="provincia" class="form-label mt-3">Provincia</label>
+			<input type="text" class="form-control" id="provincia" name="provincia" th:field="*{provincia}" required>
+
+			<label for="telefono" class="form-label mt-3">Telefono</label>
+			<input type="tel" pattern="[0-9]{9}" title="Debe poner 9 digitos" class="form-control" id="telefono"
+				name="telefono" th:field="*{telefono}" required>
+
+			<label for="sexo" class="form-label mt-3">Sexo</label>
+			<select class="form-select" id="sexo" name="sexo" th:field="*{sexo}">
+				<option value="Hombre">Hombre</option>
+				<option value="Mujer">Mujer</option>
+			</select>
+
+			<label for="fecha_nacimiento" class="form-label mt-3">Fecha de nacimiento</label>
+			<input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento"
+				th:field="*{fecha_nacimiento}" required>
+
+			<label for="fecha_registro" class="form-label mt-3">Fecha de registro: </label>
+			<span th:text="${usuario.getFecha_registro()}" />
+			<input hidden type="text" class="form-control" id="fecha_registro" name="fecha_registro"
+				th:field="*{fecha_registro}">
+
+			<input type="submit" class="btn btn-primary w-100 mt-3" value="EDITAR" />
+		</form>
 	</div>
-	
-	
-<br>
-<br>
-<footer th:insert="fragments/parts::pie"></footer>
+
+	<br>
+	<br>
+
+
 </body>
+
 </html>
