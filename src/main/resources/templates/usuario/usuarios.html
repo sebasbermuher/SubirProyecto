@@ -63,15 +63,15 @@
 						<td name="fechaNac" th:text="${u.getFecha_nacimiento()}"></td>
 						<td th:text="${u.getFecha_registro()}"></td>
 
-						<td><a title="Editar" type="button" class="btn btn-success" th:href="@{'/usuarios/edit?user='+${u.getId()}}"><i
-									class="fas fa-edit"></i></a></td>
+						<td><a title="Editar" type="button" class="btn btn-success"
+								th:href="@{'/usuarios/edit?user='+${u.getId()}}"><i class="bi bi-pencil-square"></i></a>
+						</td>
 						<!--<td><a type="button" class="btn btn-danger"
 								th:href="@{'/usuarios/delete?user='+${u.getId()}}"><i class="far fa-trash-alt"></i></a>
 						</td> -->
-						
+
 						<td><a title="Eliminar" type="button" class="btn btn-danger" href="#"
-								th:onclick="'javascript:confirmDelete(\''+ ${u.id} +'\');'"><i
-									class="fas fa-user-times"></i></a>
+								th:onclick="'javascript:confirmDelete(\''+ ${u.id} +'\');'"><i class="bi bi-person-fill-x"></i></a>
 						</td>
 					</tr>
 				</tbody>
