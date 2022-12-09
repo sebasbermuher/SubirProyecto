@@ -25,6 +25,7 @@ input.form-control:focus{
 }
 
 .form {
+	font-family: "Roboto", sans-serif;
 	position: relative;
 	z-index: 1;
 	background: #FFFFFF;
@@ -35,6 +36,7 @@ input.form-control:focus{
 	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0
 		rgba(0, 0, 0, 0.24);
 }
+
 
 .form input, .form select, .inputlogin, .form-control {
 	outline: 0;

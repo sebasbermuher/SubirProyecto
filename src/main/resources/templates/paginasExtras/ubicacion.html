@@ -3,11 +3,16 @@
 
 <head th:replace="fragments/bootstrap::head(title='Ubicacion')"></head>
 <link rel="stylesheet" type="text/css" href="static/css/ubicacion.css" th:href="@{/css/ubicacion.css}">
+<link rel="stylesheet" type="text/css" href="static/css/titulo.css" th:href="@{/css/titulo.css}">
 
 <body>
 	<header th:insert="fragments/parts::barra"></header>
-
-	<div>
+	<div class="mx-auto col-md-8 col-sm-10">
+		<div class="title">
+			<h1>Nuestra Ubicacion<span>Reserva La Pista</span></h1>
+		</div>
+	</div>
+	<div class="iframe">
 		<iframe
 			src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3170.294675309997!2d-6.060615585340551!3d37.38286294238457!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd126cb0c66b619d%3A0x1ca80e208bb71b4d!2sInstituto%20de%20Educaci%C3%B3n%20Secundaria%20Alixar!5e0!3m2!1ses!2ses!4v1667845364425!5m2!1ses!2ses"
 			width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"

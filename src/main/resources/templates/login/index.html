@@ -2,6 +2,7 @@
 <html>
    <head th:replace="fragments/bootstrap::head(title='ReservaLaPista')"></head>
    <link rel="stylesheet" type="text/css" href="static/css/index.css" th:href="@{/css/index.css}">
+   <link rel="stylesheet" type="text/css" href="static/css/menu.css" th:href="@{/css/menu.css}">
    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
    <script src="/js/login.js" defer></script>
    <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,6 +20,7 @@
                      <a><span onclick="myFunction()" class="input-group-text inputlogin"><i id="ojo" class="bi bi-eye"></i></span></a>
                   </div>
                </div>
+               <br>
                <div th:if="${param.error}" class="alert alert-danger">Usuario y contraseña inválidos.</div>
                <div th:if="${param.logout}" class="alert alert-success">Se ha cerrado la sesión.</div>
                <button>login</button>

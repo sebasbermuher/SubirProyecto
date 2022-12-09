@@ -1,7 +1,10 @@
 package org.iesalixar.servidor.controller;
 
 import java.security.Principal;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import org.iesalixar.servidor.dto.PistaDTO;
@@ -12,6 +15,8 @@ import org.iesalixar.servidor.services.PistaServiceImpl;
 import org.iesalixar.servidor.services.ReservaService;
 import org.iesalixar.servidor.services.UsuarioServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,8 +34,12 @@ public class PistasController {
 
 	@Autowired
 	UsuarioServiceImpl usuarioService;
+
+	@Autowired
+	ReservaService reService;
 	
-	@Autowired ReservaService reService;
+	@Autowired
+	private JavaMailSender mailSender;
 
 	@RequestMapping("/pistas")
 	public String pistas(Model model, Principal principal) {
@@ -74,7 +83,7 @@ public class PistasController {
 		if (pistaService.insertPista(pista) == null) {
 			return "redirect:/pistas/addPista?error=Existe&NombrePista=" + pistaDTO.getNombre();
 		}
-		
+
 		atribute.addFlashAttribute("success", "Pista ''" + pistaDTO.getNombre() + "'' guardada con éxito.");
 		return "redirect:/pistas";
 
@@ -105,7 +114,7 @@ public class PistasController {
 		pista.setApertura(pi.getApertura());
 		pista.setCierre(pi.getCierre());
 		pista.setReserva(re);
-		
+
 		if (pistaService.actualizarPista(pista) == null) {
 //			-------------------------------------------------
 //		if (pistaService.actualizarPista(pi) == null) {
@@ -134,5 +143,51 @@ public class PistasController {
 			return "redirect:/pistas/";
 		}
 	}
+
+	@GetMapping("/pistas/reservas")
+	public String reservaDePista(@RequestParam(required = false, name = "codigo") String codigo,
+			@RequestParam(required = false, name = "error") String error, Model model, Principal principal) {
+
+		// Para mostrar nombre y apellidos del usuario que ha iniciado sesion
+		Usuario user2 = usuarioService.getUsuarioByUserName(principal.getName());
+		model.addAttribute("user", user2);
+		// -------------------------------------
+		if (codigo == null) {
+			return "redirect:/pistas/";
+		}
+		Optional<Pista> pista = pistaService.findPistaById(Long.parseLong(codigo));
+
+		model.addAttribute("pista", pista.get());
+		if (pista.get().getReserva().size() == 0 || pista == null) {
+			error = "error";
+			model.addAttribute("error", error);
+		}
+		return "pista/pistaReservas";
+	}
+
+	@GetMapping("/pistas/reservas/delete")
+	public String eliminarReservaDePista(@RequestParam(required = true, name = "rese") String rese, Model model,
+			RedirectAttributes atribute) {
+		SimpleMailMessage email = new SimpleMailMessage();
+		Reserva reserva = reService.findReservaByIdModel(Long.parseLong(rese));
+
+		DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+		String fechaFormat = formatter.format(reserva.getFecha());
+
+		email.setTo(reserva.getUsuario().getEmail());
+		email.setSubject("Reserva cancelada.");
+		email.setText("Estimado/a " + reserva.getUsuario().getNombre() + " " + reserva.getUsuario().getApellido1() + " "
+				+ reserva.getUsuario().getApellido2() + ", \nle confirmamos que su reserva ha sido cancelada. \n"
+				+ reserva.getPista().getNombre() + " --- " + reserva.getPista().getDeporte() + " \n" + fechaFormat
+				+ " --- " + reserva.getHora_inicio() + "\nGracias por usar nuestros servicios. \nReservaLaPista");
+
+		mailSender.send(email);
+		reService.eliminarReserva(reserva);
+		atribute.addFlashAttribute("warning", "Reserva eliminada con éxito.");
+
+		return "redirect:/pistas";
+
+	}
+
 
 }

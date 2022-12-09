@@ -1,6 +1,7 @@
 package org.iesalixar.servidor.controller;
 
 import java.security.Principal;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
@@ -233,6 +234,30 @@ public class UsuariosController {
 			model.addAttribute("error", error);
 		}
 		return "usuario/usuarioReservas";
+	}
+
+	@GetMapping("/usuarios/reservas/delete")
+	public String eliminarReservaDeUsuario(@RequestParam(required = true, name = "rese") String rese, Model model,
+			RedirectAttributes atribute) {
+		SimpleMailMessage email = new SimpleMailMessage();
+		Reserva reserva = reService.findReservaByIdModel(Long.parseLong(rese));
+
+		DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+		String fechaFormat = formatter.format(reserva.getFecha());
+
+		email.setTo(reserva.getUsuario().getEmail());
+		email.setSubject("Reserva cancelada.");
+		email.setText("Estimado/a " + reserva.getUsuario().getNombre() + " " + reserva.getUsuario().getApellido1() + " "
+				+ reserva.getUsuario().getApellido2() + ", \nle confirmamos que su reserva ha sido cancelada. \n"
+				+ reserva.getPista().getNombre() + " --- " + reserva.getPista().getDeporte() + " \n" + fechaFormat
+				+ " --- " + reserva.getHora_inicio() + "\nGracias por usar nuestros servicios. \nReservaLaPista");
+
+		mailSender.send(email);
+		reService.eliminarReserva(reserva);
+		atribute.addFlashAttribute("warning", "Reserva eliminada con éxito.");
+
+		return "redirect:/usuarios";
+
 	}
 
 }

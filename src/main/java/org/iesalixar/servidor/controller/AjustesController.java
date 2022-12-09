@@ -64,7 +64,7 @@ public class AjustesController {
 		usuario.setApellido1(usu.getApellido1());
 		usuario.setApellido2(usu.getApellido2());
 		usuario.setUsername(usu.getUsername());
-		usuario.setPassword(new BCryptPasswordEncoder(15).encode(usu.getPassword()));
+		usuario.setPassword(usu.getPassword());
 		usuario.setEmail(usu.getEmail());
 		usuario.setRole(usu.getRole());
 		usuario.setNif(usu.getNif());

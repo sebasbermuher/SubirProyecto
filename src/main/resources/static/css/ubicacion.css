@@ -1,6 +1,7 @@
- div {
+ .iframe {
 	 display:block; 
 	 margin:auto;
+	 margin-top: -5%;
 }
 
 iframe{
@@ -10,5 +11,5 @@ iframe{
 @media only screen and (max-width: 600px) {
 	iframe {
 		max-width: 100%;
-		}
+	}
 }

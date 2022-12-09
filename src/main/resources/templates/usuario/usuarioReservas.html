@@ -4,20 +4,28 @@
 <head>
 	<meta charset="utf-8" />
 	<div th:replace="fragments/bootstrap::head2(title='Reservas de usuario')" />
+	<link rel="stylesheet" type="text/css" href="static/css/titulo.css" th:href="@{/css/titulo.css}" />
 	<link rel="stylesheet" type="text/css" href="static/css/misReservas.css" th:href="@{/css/misReservas.css}" />
-	<script src="/js/dataTableRolUser.js" th:href="@{/js/dataTableRolUser.js}" defer></script>
+	<script src="/js/dataTable.js" th:href="@{/js/dataTable.js}" defer></script>
 	<script src="/js/reservas.js" th:href="@{/js/reservas.js}" defer></script>
 </head>
 
 <body>
 	<header th:insert="fragments/parts::barra2"></header>
-	<div class="mx-auto col-11">
+	<div class="mx-auto col-12">
 		<div class="title">
 			<h1>
 				Reservas<span th:text="'@'+${usuario.getUsername()}"></span>
 			</h1>
 
-			<table id="example" class="display responsive nowrap text-center" style="width:100%">
+			<!-- MENSAJES ALERT-->
+			<div class="alert alert-warning alert-dismissable" th:if="${warning != null}">
+				<label th:text="${warning}"></label>
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+			</div>
+
+			<div class="mx-auto col-12 col-md-10">
+				<table id="example" class="display responsive nowrap" style="width:100%">
 					<thead class="table-light">
 						<tr>
 							<th>Id</th>
@@ -31,15 +39,21 @@
 					</thead>
 					<tbody>
 						<tr th:each="u : ${usuario.reserva}">
-							<td class="text-center" th:text="${u.id}"></td>
-							<td class="text-center" name="fecha" th:text="${u.fecha}"></td>
-							<td class="text-center" name="horas" th:text="${u.hora_inicio}"></td>
-							<td class="text-center" th:text="${u.pista.getDeporte()} + ' - ' + ${u.pista.getNombre()}"></td>
-							<td class="text-center" name="estado"></td>
-							<td class="text-center">boton eliminar</td>
-							</tr>
+							<td th:text="${u.id}"></td>
+							<td name="fecha" th:text="${u.fecha}"></td>
+							<td name="horas" th:text="${u.hora_inicio}"></td>
+							<td th:text="${u.pista.getDeporte()} + ' - ' + ${u.pista.getNombre()}"></td>
+							<td name="estado"></td>
+
+							<td class="text-center"><a name="eliminar" title="Eliminar" type="button"
+									class="btn btn-danger" href="#"
+									th:onclick="'javascript:confirmDelete(\''+ ${u.id} +'\');'"><i
+										class="bi bi-calendar-x"></i></a>
+							</td>
+						</tr>
 					</tbody>
 				</table>
+			</div>
 		</div>
 	</div>
 	<br>
@@ -54,7 +68,7 @@
 
 		function deleteUser() {
 			var id = $("#userIdHiddenInput").val();
-			window.location = "/misreservas/delete?rese=" + id;
+			window.location = "/usuarios/reservas/delete?rese=" + id;
 		}
 
 		function cerrar() {

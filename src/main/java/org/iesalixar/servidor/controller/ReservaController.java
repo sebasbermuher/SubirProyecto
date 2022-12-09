@@ -177,7 +177,7 @@ public class ReservaController {
 
 			mailSender.send(email);
 			atribute.addFlashAttribute("success",
-					"Reserva para el usuario  ''" + reservaDTO.getId_usuario().getNombre() + "'' realizada con éxito.");
+					"Reserva para el usuario  ''" + reservaDTO.getId_usuario().getUsername() + "'' realizada con éxito.");
 			return "redirect:/reservas";
 		}
 

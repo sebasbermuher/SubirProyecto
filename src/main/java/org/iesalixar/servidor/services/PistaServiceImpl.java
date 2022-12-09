@@ -2,6 +2,7 @@ package org.iesalixar.servidor.services;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.iesalixar.servidor.model.Pista;
 import org.iesalixar.servidor.repository.PistaRepository;
@@ -65,6 +66,11 @@ public class PistaServiceImpl implements PistaService {
 			pistaRepo.delete(pista);
 		}
 		return null;
+	}
+
+	@Override
+	public Optional<Pista> findPistaById(Long id) {
+		return pistaRepo.findById(id);
 	}
 
 }

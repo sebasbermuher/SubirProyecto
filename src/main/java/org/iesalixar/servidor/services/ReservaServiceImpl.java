@@ -2,6 +2,7 @@ package org.iesalixar.servidor.services;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import org.iesalixar.servidor.model.Pista;
@@ -26,14 +27,6 @@ public class ReservaServiceImpl implements ReservaService {
 		return null;
 	}
 
-//	@Override
-//	public Reserva noInsertReserva(Reserva reserva) {
-//		if (reserva == null) {
-//			Reserva reser = reservaRepo.save(reserva);
-//			return reser;
-//		}
-//		return null;
-//	}
 
 	@Override
 	public List<Reserva> getAllReservas() {
@@ -44,16 +37,16 @@ public class ReservaServiceImpl implements ReservaService {
 		return new ArrayList<Reserva>();
 	}
 
-	@Override
-	public Reserva findUsuarioPistaById(Usuario id, Pista id1) {
-//		if (id != null && id1 != null) {
+//	@Override
+//	public Reserva findUsuarioPistaById(Usuario id, Pista id1) {
+////		if (id != null && id1 != null) {
+////
+////			Reserva reserva = (Reserva) reservaRepo.findByUsuarioPista(id, id1);
+////			return reserva;
+////		}
 //
-//			Reserva reserva = (Reserva) reservaRepo.findByUsuarioPista(id, id1);
-//			return reserva;
-//		}
-
-		return null;
-	}
+//		return null;
+//	}
 
 	@Override
 	public void deleteUsuarioPistaById(Reserva reserva) {
@@ -93,6 +86,11 @@ public class ReservaServiceImpl implements ReservaService {
 	public Set<Reserva> ReservaUsuario(Usuario usuario) {
 		// TODO Auto-generated method stub
 		return reservaRepo.findReservaByUsuario(usuario);
+	}
+
+	@Override
+	public Optional<Reserva> findReservaById(Long id) {
+		return reservaRepo.findById(id);
 	}
 
 }

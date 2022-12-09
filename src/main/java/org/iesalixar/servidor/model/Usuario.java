@@ -228,6 +228,8 @@ public class Usuario implements Serializable {
 	public void setReserva(Set<Reserva> reserva) {
 		this.reserva = reserva;
 	}
+	
+	
 
 //	@Override
 //	public int hashCode() {
@@ -253,6 +255,11 @@ public class Usuario implements Serializable {
 //				&& Objects.equals(role, other.role) && Objects.equals(sexo, other.sexo)
 //				&& Objects.equals(telefono, other.telefono) && Objects.equals(username, other.username);
 //	}
+
+	@Override
+	public String toString() {
+		return "Usuario [id=" + id + "]";
+	}
 
 	// HELPERS ELIMINAR RESERVA
 	public void removeReserva(Pista pista) {
