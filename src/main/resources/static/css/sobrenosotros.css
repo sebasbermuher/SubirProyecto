@@ -23,17 +23,12 @@ img{
 /*--- VERSION MOVIL ---*/
 @media only screen and (max-width: 480px) {
 	.col {
-		width: 93% !important;
+		width: 100% !important;
 		margin: 1% 0 1% 0%;
 		margin-left: 0 !important;
 	}
-	
-	.frow{ 
-		width: 93%;
-	}
-	
+		
 	img{
 	  width: 60%;
 }
-	
 }

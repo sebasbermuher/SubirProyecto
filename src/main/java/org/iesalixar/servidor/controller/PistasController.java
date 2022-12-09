@@ -2,11 +2,14 @@ package org.iesalixar.servidor.controller;
 
 import java.security.Principal;
 import java.util.List;
+import java.util.Set;
 
 import org.iesalixar.servidor.dto.PistaDTO;
 import org.iesalixar.servidor.model.Pista;
+import org.iesalixar.servidor.model.Reserva;
 import org.iesalixar.servidor.model.Usuario;
 import org.iesalixar.servidor.services.PistaServiceImpl;
+import org.iesalixar.servidor.services.ReservaService;
 import org.iesalixar.servidor.services.UsuarioServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,6 +29,8 @@ public class PistasController {
 
 	@Autowired
 	UsuarioServiceImpl usuarioService;
+	
+	@Autowired ReservaService reService;
 
 	@RequestMapping("/pistas")
 	public String pistas(Model model, Principal principal) {
@@ -91,8 +96,19 @@ public class PistasController {
 
 	@PostMapping("/pistas/edit")
 	public String updatePistaPost(@ModelAttribute Pista pi, RedirectAttributes atribute) {
-
-		if (pistaService.actualizarPista(pi) == null) {
+//----------------------------------
+		Set<Reserva> re = reService.findReservaByPista(pi);
+		Pista pista = new Pista();
+		pista.setId(pi.getId());
+		pista.setNombre(pi.getNombre());
+		pista.setDeporte(pi.getDeporte());
+		pista.setApertura(pi.getApertura());
+		pista.setCierre(pi.getCierre());
+		pista.setReserva(re);
+		
+		if (pistaService.actualizarPista(pista) == null) {
+//			-------------------------------------------------
+//		if (pistaService.actualizarPista(pi) == null) {
 			return "redirect:/pistas/edit?error=error&pist" + pi.getId();
 		}
 		atribute.addFlashAttribute("edit", "Pista ''" + pi.getNombre() + "'' editada con éxito.");

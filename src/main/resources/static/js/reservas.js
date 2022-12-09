@@ -13,17 +13,16 @@ for (var i = 0; i < fechaDOM.length; i++) {
 	const año = fecha.split('-')[0]
 	const mes = fecha.split('-')[1]
 	const dia = fecha.split('-')[2]
-	
-	
+
+
 	console.log(dia)
 	console.log(mes)
 	console.log(año)
-	
+
 	if (fecha < diaActual) {
 		estado[i].innerHTML = "JUGADO"
 		estado[i].style.backgroundColor = "#FB6C63"
 		estado[i].style.fontWeight = "bold"
-		eliminar[i].style.display = "none"
 	}
 
 	if (fecha > diaActual) {
@@ -38,24 +37,23 @@ for (var i = 0; i < fechaDOM.length; i++) {
 			estado[i].innerHTML = "EN JUEGO"
 			estado[i].style.backgroundColor = "#FBF663"
 			estado[i].style.fontWeight = "bold"
-			eliminar[i].style.display = "none"
 			if (horaActual > horasFin) {
 				estado[i].innerHTML = "JUGADO"
 				estado[i].style.backgroundColor = "#FB6C63"
 				estado[i].style.fontWeight = "bold"
-				eliminar[i].style.display = "none"
+
 			}
 
-		} else{
+		} else {
 			estado[i].innerHTML = "POR JUGAR"
 			estado[i].style.backgroundColor = "#85EA8E"
 			estado[i].style.fontWeight = "bold"
 		}
 
 	}
-	
-	fechaDOM[i].innerHTML=dia+"-"+mes+"-"+año
-	
+
+	fechaDOM[i].innerHTML = dia + "-" + mes + "-" + año
+
 
 }
 

@@ -8,7 +8,8 @@
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
    <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap" rel="stylesheet">
    <body>
-      <div class="login-page">
+   <header th:insert="fragments/parts::barraLogin"></header>
+      <div sec:authorize="!isAuthenticated()" class="login-page">
          <div class="form">
             <form class="login-form" th:action="@{/login}" method="post">
                <input type="text" placeholder="Usuario" id="username" name="username" class="form-control inputlogin" />
@@ -25,5 +26,18 @@
             </form>
          </div>
       </div>
+      
+      <div sec:authorize="isAuthenticated()" class="login-page">
+		<div class="form">
+			<h6>Bienvenido/a <b><span sec:authentication="name" /></b></h6>
+			<br>
+			<p>Desde ReservaLaPista le damos las gracias por usar nuestros
+				servicios.</p>
+
+			<a th:href="@{/reservar}">Ir a Reservar Espacio</a>
+		</div>
+	</div>
+	<footer sec:authorize="isAuthenticated()" th:insert="fragments/parts::pie"></footer>
+      
    </body>
 </html>

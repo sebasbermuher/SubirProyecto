@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head th:replace="fragments/bootstrap::head(title='Cambiar Contraseña')"></head>
+<script src="/js/login.js" defer></script>
+
+<body>
+	<header th:insert="fragments/parts::barra"></header>
+
+	<br>
+
+	<ul class="nav justify-content-center">
+		<li class="nav-item">
+			<a class="nav-link" th:href="@{/ajustes}">Mis Datos</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link btn btn-primary btn-sm active" aria-current="page" th:href="@{/ajustes/cambiarPassw}"
+				role="button">Cambiar Contraseña</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" th:href="@{/ajustes/cuenta}">Eliminar Cuenta</a>
+		</li>
+	</ul>
+
+	<br>
+	<div class="col-md-6 col-sm-12 mx-auto">
+		<form th:action="@{/ajustes/cambiarPassw}" method="post" th:object="${usuario}">
+			<div class="container">
+				<div class="row">
+					<!-- MENSAJES ALERT-->
+					<div class="alert alert-info alert-dismissable" th:if="${edit != null}">
+						<label th:text="${edit}"></label>
+						<button type="button" class="close" data-dismiss="alert">&times;</button>
+					</div>
+					<div class="alert alert-danger alert-dismissable" th:if="${warning != null}">
+						<label th:text="${warning}"></label>
+						<button type="button" class="close" data-dismiss="alert">&times;</button>
+					</div>
+					<div readonly style="display: none !important;">
+						<input type="text" class="form-control" id="id" name="id" th:field="*{id}">
+						<input type="text" class="form-control" id="nombre" name="nombre" th:field="*{nombre}" required>
+						<input type="text" class="form-control" id="apellido1" name="apellido1" th:field="*{apellido1}"
+							required>
+						<input type="text" class="form-control" id="apellido2" name="apellido2" th:field="*{apellido2}"
+							required>
+						<input type="text" class="form-control" id="username" name="username" th:field="*{username}"
+							required>
+
+						<input type="email" class="form-control" id="email" name="email" th:field="*{email}" required>
+						<select class="form-select" id="role" name="role" th:field="*{role}">
+							<option value="ROLE_USER">ROLE_USER</option>
+							<option value="ROLE_ADMIN">ROLE_ADMIN</option>
+						</select>
+						<input type="text" pattern="[0-9]{8}[A-Za-z]{1}" title="Debe poner 8 números y una letra"
+							class="form-control" id="nif" name="nif" th:field="*{nif}" required>
+						<input type="text" class="form-control" id="localidad" name="localidad" th:field="*{localidad}"
+							required>
+						<input type="text" class="form-control" id="provincia" name="provincia" th:field="*{provincia}"
+							required>
+						<input type="tel" pattern="[0-9]{9}" title="Debe poner 9 digitos" class="form-control"
+							id="telefono" name="telefono" th:field="*{telefono}" required>
+						<select class="form-select" id="sexo" name="sexo" th:field="*{sexo}">
+							<option value="Hombre">Hombre</option>
+							<option value="Mujer">Mujer</option>
+						</select>
+						<input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento"
+							th:field="*{fecha_nacimiento}" required>
+
+						<input type="text" class="form-control" id="fecha_registro" name="fecha_registro"
+							th:field="*{fecha_registro}">
+					</div>
+
+					<div class="col-md-6 col-9 mx-auto">
+						<br>
+						<div class="input-group">
+
+							<input placeholder="Nueva contraseña" type="password" class="form-control" id="password"
+								name="password" th:field="*{password}" required>
+							<div class="input-group-prepend">
+								<a><span onclick="myFunction()" class="input-group-text inputlogin"><i id="ojo"
+											class="bi bi-eye"></i></span></a>
+							</div>
+						</div>
+						<input type="submit" class="btn btn-primary w-100 mt-3" value="GUARDAR" />
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<br>
+	<br>
+	<footer th:insert="fragments/parts::pie"></footer>
+
+</body>
+
+</html>

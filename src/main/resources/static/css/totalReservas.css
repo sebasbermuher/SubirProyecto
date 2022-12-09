@@ -60,3 +60,10 @@ h1 em {
 	height: 5px;
 	background-color: #f8f8f8;
 }
+
+@media screen and (max-width: 600px) {
+	  li:nth-child(1){
+		  white-space: pre-line !important;
+	  }
+}
+

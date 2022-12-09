@@ -1,0 +1,221 @@
+2022-12-05 21:11:48.869  INFO 26348 --- [restartedMain] o.i.servidor.ReservaLaPistaApplication   : Starting ReservaLaPistaApplication using Java 17.0.4.1 on LAPTOP-83OO1D6F with PID 26348 (C:\Users\dev\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\ReservaLaPista\target\classes started by dev in C:\Users\dev\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\ReservaLaPista)
+2022-12-05 21:11:48.869  INFO 26348 --- [restartedMain] o.i.servidor.ReservaLaPistaApplication   : No active profile set, falling back to 1 default profile: "default"
+2022-12-05 21:11:49.080  INFO 26348 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-05 21:11:49.104  INFO 26348 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18 ms. Found 3 JPA repository interfaces.
+2022-12-05 21:11:49.214  INFO 26348 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8282 (http)
+2022-12-05 21:11:49.215  INFO 26348 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-05 21:11:49.215  INFO 26348 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
+2022-12-05 21:11:49.261  INFO 26348 --- [restartedMain] o.a.c.c.C.[Tomcat-3].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2022-12-05 21:11:49.262  INFO 26348 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 391 ms
+2022-12-05 21:11:49.353  INFO 26348 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-05 21:11:49.359  INFO 26348 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-96 - Starting...
+2022-12-05 21:11:49.372  INFO 26348 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-96 - Start completed.
+2022-12-05 21:11:49.372  INFO 26348 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MariaDBDialect
+2022-12-05 21:11:49.437  INFO 26348 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-05 21:11:49.437  INFO 26348 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-05 21:11:49.454  WARN 26348 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-05 21:11:49.688  INFO 26348 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@f270843, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1e5c5a22, org.springframework.security.web.context.SecurityContextPersistenceFilter@33f195c4, org.springframework.security.web.header.HeaderWriterFilter@57d57716, org.springframework.security.web.csrf.CsrfFilter@2e9718e5, org.springframework.security.web.authentication.logout.LogoutFilter@2215e5bc, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@28368b7a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7b444a4e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@755eff7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@548ed85b, org.springframework.security.web.session.SessionManagementFilter@25b7f1a7, org.springframework.security.web.access.ExceptionTranslationFilter@15dba4d0, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4411c12b]
+2022-12-05 21:11:49.807  INFO 26348 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-12-05 21:11:49.881  INFO 26348 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-12-05 21:11:49.892  INFO 26348 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8282 (http) with context path ''
+2022-12-05 21:11:49.896  INFO 26348 --- [restartedMain] o.i.servidor.ReservaLaPistaApplication   : Started ReservaLaPistaApplication in 1.092 seconds (JVM running for 18894.796)
+2022-12-05 21:11:49.898  INFO 26348 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-12-05 21:12:20.923  INFO 26348 --- [Thread-380] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-05 21:12:20.925  INFO 26348 --- [Thread-380] com.zaxxer.hikari.HikariDataSource       : HikariPool-96 - Shutdown initiated...
+2022-12-05 21:12:20.972  INFO 26348 --- [Thread-380] com.zaxxer.hikari.HikariDataSource       : HikariPool-96 - Shutdown completed.
+2022-12-05 21:12:21.086  INFO 26348 --- [restartedMain] o.i.servidor.ReservaLaPistaApplication   : Starting ReservaLaPistaApplication using Java 17.0.4.1 on LAPTOP-83OO1D6F with PID 26348 (C:\Users\dev\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\ReservaLaPista\target\classes started by dev in C:\Users\dev\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\ReservaLaPista)
+2022-12-05 21:12:21.086  INFO 26348 --- [restartedMain] o.i.servidor.ReservaLaPistaApplication   : No active profile set, falling back to 1 default profile: "default"
+2022-12-05 21:12:21.348  INFO 26348 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-05 21:12:21.368  INFO 26348 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18 ms. Found 3 JPA repository interfaces.
+2022-12-05 21:12:21.491  INFO 26348 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8282 (http)
+2022-12-05 21:12:21.492  INFO 26348 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-05 21:12:21.492  INFO 26348 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
+2022-12-05 21:12:21.525  INFO 26348 --- [restartedMain] o.a.c.c.C.[Tomcat-3].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2022-12-05 21:12:21.525  INFO 26348 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 436 ms
+2022-12-05 21:12:21.560  INFO 26348 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-05 21:12:21.565  INFO 26348 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-97 - Starting...
+2022-12-05 21:12:21.575  INFO 26348 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-97 - Start completed.
+2022-12-05 21:12:21.575  INFO 26348 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MariaDBDialect
+2022-12-05 21:12:21.629  INFO 26348 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-05 21:12:21.629  INFO 26348 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-05 21:12:21.646  WARN 26348 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-05 21:12:21.731  WARN 26348 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'loginController' defined in file [C:\Users\dev\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\ReservaLaPista\target\classes\org\iesalixar\servidor\controller\LoginController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.iesalixar.servidor.controller.LoginController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problem: 
+	LoginController cannot be resolved to a variable
+
+2022-12-05 21:12:21.731  INFO 26348 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-05 21:12:21.732  INFO 26348 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-97 - Shutdown initiated...
+2022-12-05 21:12:21.746  INFO 26348 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-97 - Shutdown completed.
+2022-12-05 21:12:21.747  INFO 26348 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-12-05 21:12:21.752  INFO 26348 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-12-05 21:12:21.757 ERROR 26348 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'loginController' defined in file [C:\Users\dev\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\ReservaLaPista\target\classes\org\iesalixar\servidor\controller\LoginController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.iesalixar.servidor.controller.LoginController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problem: 
+	LoginController cannot be resolved to a variable
+
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1334) ~[spring-beans-5.3.21.jar:5.3.21]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232) ~[spring-beans-5.3.21.jar:5.3.21]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) ~[spring-beans-5.3.21.jar:5.3.21]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.21.jar:5.3.21]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.21.jar:5.3.21]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.21.jar:5.3.21]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.21.jar:5.3.21]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.21.jar:5.3.21]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955) ~[spring-beans-5.3.21.jar:5.3.21]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918) ~[spring-context-5.3.21.jar:5.3.21]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.21.jar:5.3.21]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.1.jar:2.7.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-2.7.1.jar:2.7.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.1.jar:2.7.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.1.jar:2.7.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.1.jar:2.7.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.1.jar:2.7.1]
+	at org.iesalixar.servidor.ReservaLaPistaApplication.main(ReservaLaPistaApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.7.1.jar:2.7.1]
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.iesalixar.servidor.controller.LoginController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problem: 
+	LoginController cannot be resolved to a variable
+
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:224) ~[spring-beans-5.3.21.jar:5.3.21]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:87) ~[spring-beans-5.3.21.jar:5.3.21]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1326) ~[spring-beans-5.3.21.jar:5.3.21]
+	... 22 common frames omitted
+Caused by: java.lang.Error: Unresolved compilation problem: 
+	LoginController cannot be resolved to a variable
+
+	at org.iesalixar.servidor.controller.LoginController.<init>(LoginController.java:27) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480) ~[na:na]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:211) ~[spring-beans-5.3.21.jar:5.3.21]
+	... 24 common frames omitted
+
+2022-12-05 21:12:26.580  INFO 26348 --- [restartedMain] o.i.servidor.ReservaLaPistaApplication   : Starting ReservaLaPistaApplication using Java 17.0.4.1 on LAPTOP-83OO1D6F with PID 26348 (C:\Users\dev\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\ReservaLaPista\target\classes started by dev in C:\Users\dev\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\ReservaLaPista)
+2022-12-05 21:12:26.581  INFO 26348 --- [restartedMain] o.i.servidor.ReservaLaPistaApplication   : No active profile set, falling back to 1 default profile: "default"
+2022-12-05 21:12:26.815  INFO 26348 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-05 21:12:26.858  INFO 26348 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 42 ms. Found 3 JPA repository interfaces.
+2022-12-05 21:12:26.994  INFO 26348 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8282 (http)
+2022-12-05 21:12:26.995  INFO 26348 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-05 21:12:26.995  INFO 26348 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
+2022-12-05 21:12:27.059  INFO 26348 --- [restartedMain] o.a.c.c.C.[Tomcat-4].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2022-12-05 21:12:27.059  INFO 26348 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 474 ms
+2022-12-05 21:12:27.137  INFO 26348 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-05 21:12:27.147  INFO 26348 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-98 - Starting...
+2022-12-05 21:12:27.160  INFO 26348 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-98 - Start completed.
+2022-12-05 21:12:27.161  INFO 26348 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MariaDBDialect
+2022-12-05 21:12:27.246  INFO 26348 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-05 21:12:27.246  INFO 26348 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-05 21:12:27.277  WARN 26348 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-05 21:12:27.414  WARN 26348 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'loginController' defined in file [C:\Users\dev\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\ReservaLaPista\target\classes\org\iesalixar\servidor\controller\LoginController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.iesalixar.servidor.controller.LoginController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problem: 
+	LoggerFactory cannot be resolved to a variable
+
+2022-12-05 21:12:27.415  INFO 26348 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-05 21:12:27.415  INFO 26348 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-98 - Shutdown initiated...
+2022-12-05 21:12:27.444  INFO 26348 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-98 - Shutdown completed.
+2022-12-05 21:12:27.444  INFO 26348 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-12-05 21:12:27.453  INFO 26348 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-12-05 21:12:27.457 ERROR 26348 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'loginController' defined in file [C:\Users\dev\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\ReservaLaPista\target\classes\org\iesalixar\servidor\controller\LoginController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.iesalixar.servidor.controller.LoginController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problem: 
+	LoggerFactory cannot be resolved to a variable
+
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1334) ~[spring-beans-5.3.21.jar:5.3.21]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232) ~[spring-beans-5.3.21.jar:5.3.21]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) ~[spring-beans-5.3.21.jar:5.3.21]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.21.jar:5.3.21]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.21.jar:5.3.21]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.21.jar:5.3.21]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.21.jar:5.3.21]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.21.jar:5.3.21]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955) ~[spring-beans-5.3.21.jar:5.3.21]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918) ~[spring-context-5.3.21.jar:5.3.21]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.21.jar:5.3.21]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.1.jar:2.7.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-2.7.1.jar:2.7.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.1.jar:2.7.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.1.jar:2.7.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.1.jar:2.7.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.1.jar:2.7.1]
+	at org.iesalixar.servidor.ReservaLaPistaApplication.main(ReservaLaPistaApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.7.1.jar:2.7.1]
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.iesalixar.servidor.controller.LoginController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problem: 
+	LoggerFactory cannot be resolved to a variable
+
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:224) ~[spring-beans-5.3.21.jar:5.3.21]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:87) ~[spring-beans-5.3.21.jar:5.3.21]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1326) ~[spring-beans-5.3.21.jar:5.3.21]
+	... 22 common frames omitted
+Caused by: java.lang.Error: Unresolved compilation problem: 
+	LoggerFactory cannot be resolved to a variable
+
+	at org.iesalixar.servidor.controller.LoginController.<init>(LoginController.java:27) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480) ~[na:na]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:211) ~[spring-beans-5.3.21.jar:5.3.21]
+	... 24 common frames omitted
+
+2022-12-05 21:12:39.755  INFO 26348 --- [restartedMain] o.i.servidor.ReservaLaPistaApplication   : Starting ReservaLaPistaApplication using Java 17.0.4.1 on LAPTOP-83OO1D6F with PID 26348 (C:\Users\dev\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\ReservaLaPista\target\classes started by dev in C:\Users\dev\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\ReservaLaPista)
+2022-12-05 21:12:39.755  INFO 26348 --- [restartedMain] o.i.servidor.ReservaLaPistaApplication   : No active profile set, falling back to 1 default profile: "default"
+2022-12-05 21:12:40.220  INFO 26348 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-05 21:12:40.247  INFO 26348 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 27 ms. Found 3 JPA repository interfaces.
+2022-12-05 21:12:40.364  INFO 26348 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8282 (http)
+2022-12-05 21:12:40.365  INFO 26348 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-05 21:12:40.365  INFO 26348 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
+2022-12-05 21:12:40.406  INFO 26348 --- [restartedMain] o.a.c.c.C.[Tomcat-5].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2022-12-05 21:12:40.406  INFO 26348 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 644 ms
+2022-12-05 21:12:40.462  INFO 26348 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-05 21:12:40.468  INFO 26348 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-99 - Starting...
+2022-12-05 21:12:40.478  INFO 26348 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-99 - Start completed.
+2022-12-05 21:12:40.478  INFO 26348 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MariaDBDialect
+2022-12-05 21:12:40.536  INFO 26348 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-05 21:12:40.536  INFO 26348 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-05 21:12:40.589  WARN 26348 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-05 21:12:40.733  INFO 26348 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@23dc8ac9, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6e7ec1a3, org.springframework.security.web.context.SecurityContextPersistenceFilter@d67a29a, org.springframework.security.web.header.HeaderWriterFilter@11f0bbda, org.springframework.security.web.csrf.CsrfFilter@f42d2c4, org.springframework.security.web.authentication.logout.LogoutFilter@2b85ae0b, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@349f9ef2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4f27ae4a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5b9df21f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4bb25528, org.springframework.security.web.session.SessionManagementFilter@142a9629, org.springframework.security.web.access.ExceptionTranslationFilter@2a3d17f3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@436cc0a4]
+2022-12-05 21:12:40.834  INFO 26348 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-12-05 21:12:40.897  INFO 26348 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-12-05 21:12:40.909  INFO 26348 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8282 (http) with context path ''
+2022-12-05 21:12:40.915  INFO 26348 --- [restartedMain] o.i.servidor.ReservaLaPistaApplication   : Started ReservaLaPistaApplication in 1.224 seconds (JVM running for 18945.816)
+2022-12-05 21:12:40.917  INFO 26348 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-12-05 21:14:31.697  INFO 26348 --- [Thread-384] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-05 21:14:31.698  INFO 26348 --- [Thread-384] com.zaxxer.hikari.HikariDataSource       : HikariPool-99 - Shutdown initiated...
+2022-12-05 21:14:31.722  INFO 26348 --- [Thread-384] com.zaxxer.hikari.HikariDataSource       : HikariPool-99 - Shutdown completed.
+2022-12-05 21:14:31.854  INFO 26348 --- [restartedMain] o.i.servidor.ReservaLaPistaApplication   : Starting ReservaLaPistaApplication using Java 17.0.4.1 on LAPTOP-83OO1D6F with PID 26348 (C:\Users\dev\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\ReservaLaPista\target\classes started by dev in C:\Users\dev\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\ReservaLaPista)
+2022-12-05 21:14:31.854  INFO 26348 --- [restartedMain] o.i.servidor.ReservaLaPistaApplication   : No active profile set, falling back to 1 default profile: "default"
+2022-12-05 21:14:32.152  INFO 26348 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-05 21:14:32.170  INFO 26348 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18 ms. Found 3 JPA repository interfaces.
+2022-12-05 21:14:32.306  INFO 26348 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8282 (http)
+2022-12-05 21:14:32.307  INFO 26348 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-05 21:14:32.307  INFO 26348 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
+2022-12-05 21:14:32.336  INFO 26348 --- [restartedMain] o.a.c.c.C.[Tomcat-5].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2022-12-05 21:14:32.336  INFO 26348 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 479 ms
+2022-12-05 21:14:32.383  INFO 26348 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-05 21:14:32.390  INFO 26348 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-100 - Starting...
+2022-12-05 21:14:32.420  INFO 26348 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-100 - Start completed.
+2022-12-05 21:14:32.420  INFO 26348 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MariaDBDialect
+2022-12-05 21:14:32.481  INFO 26348 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-05 21:14:32.481  INFO 26348 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-05 21:14:32.523  WARN 26348 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-05 21:14:32.689  INFO 26348 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@b1294d1, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5a63670e, org.springframework.security.web.context.SecurityContextPersistenceFilter@22c20b43, org.springframework.security.web.header.HeaderWriterFilter@609e1791, org.springframework.security.web.csrf.CsrfFilter@496859ab, org.springframework.security.web.authentication.logout.LogoutFilter@1bc7ce40, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7b513490, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@75a94f6b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@651bfcd0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@188ea7a8, org.springframework.security.web.session.SessionManagementFilter@296caac4, org.springframework.security.web.access.ExceptionTranslationFilter@37dc1c0c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3e8f940e]
+2022-12-05 21:14:32.840  INFO 26348 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-12-05 21:14:32.919  INFO 26348 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-12-05 21:14:32.938  INFO 26348 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8282 (http) with context path ''
+2022-12-05 21:14:32.944  INFO 26348 --- [restartedMain] o.i.servidor.ReservaLaPistaApplication   : Started ReservaLaPistaApplication in 1.122 seconds (JVM running for 19057.847)
+2022-12-05 21:14:32.946  INFO 26348 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-12-05 21:15:45.331  INFO 26348 --- [Thread-394] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-05 21:15:45.333  INFO 26348 --- [Thread-394] com.zaxxer.hikari.HikariDataSource       : HikariPool-100 - Shutdown initiated...
+2022-12-05 21:15:45.393  INFO 26348 --- [Thread-394] com.zaxxer.hikari.HikariDataSource       : HikariPool-100 - Shutdown completed.

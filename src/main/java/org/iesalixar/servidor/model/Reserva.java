@@ -33,12 +33,10 @@ public class Reserva implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-//	@Id
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_usuario")
 	private Usuario usuario;
 
-//	@Id
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_pista")
 	private Pista pista;
@@ -101,10 +99,6 @@ public class Reserva implements Serializable {
 		this.hora_inicio = hora_inicio;
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(fecha, hora_inicio, id, pista, usuario);
-	}
 
 	@Override
 	public boolean equals(Object obj) {

@@ -1,8 +1,11 @@
 package org.iesalixar.servidor.controller;
 
 import java.security.Principal;
+import java.util.List;
 
+import org.iesalixar.servidor.model.Pista;
 import org.iesalixar.servidor.model.Usuario;
+import org.iesalixar.servidor.services.PistaServiceImpl;
 import org.iesalixar.servidor.services.UsuarioServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,15 +17,22 @@ public class PaginasExtrasController {
 	
 	@Autowired
 	UsuarioServiceImpl usuarioService;
+	
+	@Autowired
+	PistaServiceImpl pistaService;
 
-	@GetMapping("/patrocinadores")
+	@GetMapping("/horarios")
 	public String patrocinadores(Model model, Principal principal) {
 		// Para mostrar nombre y apellidos del usuario que ha iniciado sesion
 		Usuario user = usuarioService.getUsuarioByUserName(principal.getName());
 		model.addAttribute("user", user);
 		// -------------------------------------
+		
+		List<Pista> pista = pistaService.getAllPistas();
 
-		return "paginasExtras/patrocinadores";
+		model.addAttribute("pista", pista);
+
+		return "paginasExtras/horarios";
 	}
 	
 	@GetMapping("/ubicacion")

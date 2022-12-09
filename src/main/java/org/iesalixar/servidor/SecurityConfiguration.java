@@ -72,11 +72,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
             .usernameParameter("username")
             .passwordParameter("password")
             .and()
+            .csrf().disable()
         .logout()
             .permitAll()
+            .deleteCookies("JSESSIONID")
             .logoutSuccessUrl("/login?logout");
-
-		
 	}
 	
 	

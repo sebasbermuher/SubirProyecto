@@ -28,8 +28,15 @@ public class LoginController {
 	@Autowired
 	private JavaMailSender mailSender;
 
+	// Mapeado multiple del login
 	@RequestMapping({ "/", "/login" })
-	public String login(Model model) {
+	public String login(Model model, Principal principal) {
+		// Para mostrar nombre y apellidos del usuario que ha iniciado sesion
+		if (principal != null) {
+			Usuario user = usuarioService.getUsuarioByUserName(principal.getName());
+			model.addAttribute("user", user);
+		}
+		// -------------------------------------
 		return "login/index";
 	}
 
@@ -40,6 +47,7 @@ public class LoginController {
 			@RequestParam(required = false, name = "errorPassword") String errorPassword, Model model) {
 
 		UsuarioDTO userDTO = new UsuarioDTO();
+		// Creacion de las variables
 		model.addAttribute("userDTO", userDTO);
 		model.addAttribute("errorUsername", errorUsername);
 		model.addAttribute("errorEmail", errorEmail);
@@ -52,7 +60,9 @@ public class LoginController {
 	@PostMapping("/register")
 	public String registerPost(@ModelAttribute UsuarioDTO usuario) {
 
+		// Creacion de Usuario
 		Usuario userBD = new Usuario();
+		// Se añade al usuario los getters que recoge los datos
 		userBD.setNif(usuario.getNif());
 		userBD.setNombre(usuario.getNombre());
 		userBD.setApellido1(usuario.getApellido1());
@@ -67,39 +77,45 @@ public class LoginController {
 		userBD.setRole("ROLE_USER");
 		userBD.setFecha_nacimiento(usuario.getFecha_nacimiento());
 
+		// Generamos la fecha actual y se la pasamos a nuestro usuario como
+		// fecha_registro
 		String fechaActual = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
 		userBD.setFecha_registro(fechaActual);
 
+		// Inicializamos el modelo email
 		SimpleMailMessage email = new SimpleMailMessage();
 
-		if (usuario.getPassword().length() < 5) {
-			return "redirect:/register?errorPassword=min5&caracters";
-		} else {
-			userBD = usuarioService.insertUsuario(userBD);
+		// Mientras el usuario el nulo
 
-			email.setTo(usuario.getEmail());
-			email.setSubject("Registro en ReservaLaPista confirmado.");
-			email.setText("Estimado/a " + usuario.getNombre() + " " + usuario.getApellido1() + " "
-					+ usuario.getApellido2()
-					+ ", \nle damos la bienvenida a nuestra aplicación web ''ReservaLaPista''. \nDesde ya puedes reservar nuestras pistas deportivas. \nMuchas gracias por su confianza. \nLe mandamos un cordial saludo. \nReservaLaPista.");
-
-			mailSender.send(email);
+		// Si el username introducido ya está registrado en la base de datos, nos
+		// muestra
+		// un error
+		if (usuarioService.getUsuarioByUserName(usuario.getUsername()) != null) {
+			return "redirect:/register?errorUsername=Existe&usuario";
+		}
+		// Si el email introducido ya está registrado en la base de datos, nos muetra un
+		// error
+		if (usuarioService.getUsuarioByEmail(usuario.getEmail()) != null) {
+			return "redirect:/register?errorEmail=Email&registrado";
+		}
+		// Si el nif introducido ya está registrado en la base de datos, nos muetra un
+		// error
+		if (usuarioService.getUsuarioByNif(usuario.getNif()) != null) {
+			return "redirect:/register?errorDNI=dni&registrado";
 		}
 
-		if (userBD == null) {
-			if (usuarioService.getUsuarioByUserName(usuario.getUsername()) != null) {
-				return "redirect:/register?errorUsername=Existe&usuario";
-			} else if (usuarioService.getUsuarioByEmail(usuario.getEmail()) != null) {
-				return "redirect:/register?errorEmail=Email&registrado";
-			} else if (usuarioService.getUsuarioByNif(usuario.getNif()) != null) {
-				return "redirect:/register?errorDNI=dni&registrado";
-			}
-		} else {
+		// Mientras que el usuario no sea nulo (es decir, se crea correctamente)
+		if (userBD != null) {
+			// Si la contraseña es menor de 5, nos muestra un error
 			if (usuario.getPassword().length() < 5) {
 				return "redirect:/register?errorPassword=min5&caracters";
 			} else {
+				// Si la contraseña es igual o mayor de 5, nos inserta el usuario en la base de
+				// datos
 				userBD = usuarioService.insertUsuario(userBD);
 
+				// Además de insertar el usuario, le enviamos un email de bienvenida al email
+				// del usuario
 				email.setTo(usuario.getEmail());
 				email.setSubject("Registro en ReservaLaPista confirmado.");
 				email.setText("Estimado/a " + usuario.getNombre() + " " + usuario.getApellido1() + " "
@@ -108,17 +124,17 @@ public class LoginController {
 
 				mailSender.send(email);
 			}
-
 		}
-
+		// Una vez registrado nuestra cuenta, nos redirige al login
 		return "redirect:/";
 	}
 
+	// Mapeamos la direccion y nos redirige a la pantalla
 	@RequestMapping({ "/menu" })
 	public String menu(Model model, Principal principal) {
 
 		// Para mostrar nombre y apellidos del usuario que ha iniciado sesion
-		// http://www.it.uc3m.es/jaf/aw/practicas/5-spring/
+		// Fuente --> http://www.it.uc3m.es/jaf/aw/practicas/5-spring/
 		Usuario user = usuarioService.getUsuarioByUserName(principal.getName());
 		model.addAttribute("user", user);
 

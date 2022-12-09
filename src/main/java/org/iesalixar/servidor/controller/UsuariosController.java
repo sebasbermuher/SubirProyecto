@@ -4,9 +4,13 @@ import java.security.Principal;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 
 import org.iesalixar.servidor.dto.UsuarioDTO;
+import org.iesalixar.servidor.model.Reserva;
 import org.iesalixar.servidor.model.Usuario;
+import org.iesalixar.servidor.services.ReservaServiceImpl;
 import org.iesalixar.servidor.services.UsuarioServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
@@ -26,6 +30,9 @@ public class UsuariosController {
 
 	@Autowired
 	UsuarioServiceImpl usuarioService;
+
+	@Autowired
+	ReservaServiceImpl reService;
 
 	@Autowired
 	private JavaMailSender mailSender;
@@ -129,7 +136,8 @@ public class UsuariosController {
 	}
 
 	@GetMapping("/usuarios/edit")
-	public String editUsuarioGet(@RequestParam(name = "user") String user, Model model, Principal principal) {
+	public String editUsuarioGet(@RequestParam(name = "user") String user,
+			@RequestParam(required = false, name = "errorEmail") String errorEmail, Model model, Principal principal) {
 
 		// Para mostrar nombre y apellidos del usuario que ha iniciado sesion
 		Usuario user2 = usuarioService.getUsuarioByUserName(principal.getName());
@@ -139,19 +147,57 @@ public class UsuariosController {
 		Usuario usuario = usuarioService.findUsuarioByIdModel(Long.parseLong(user));
 		model.addAttribute("usuario", usuario);
 
+		model.addAttribute("errorEmail", errorEmail);
+
 		return "usuario/editUsuario";
 	}
 
 	@PostMapping("/usuarios/edit")
-	public String updateUsuarioPost(@ModelAttribute Usuario usu, UsuarioDTO usuarioDTO, RedirectAttributes atribute) {
+	public String updateUsuarioPost(@ModelAttribute Usuario usu, RedirectAttributes atribute) {
 
-		usu.setPassword(new BCryptPasswordEncoder(15).encode(usu.getPassword()));
+		Set<Reserva> re = reService.ReservaUsuario(usu);
 
-		if (usuarioService.actualizarUsuario(usu) == null) {
+		Usuario usuario = new Usuario();
+		usuario.setId(usu.getId());
+		usuario.setNombre(usu.getNombre());
+		usuario.setApellido1(usu.getApellido1());
+		usuario.setApellido2(usu.getApellido2());
+		usuario.setUsername(usu.getUsername());
+		usuario.setPassword(usu.getPassword());
+		usuario.setEmail(usu.getEmail());
+		usuario.setRole(usu.getRole());
+		usuario.setNif(usu.getNif());
+		usuario.setLocalidad(usu.getLocalidad());
+		usuario.setProvincia(usu.getProvincia());
+		usuario.setTelefono(usu.getTelefono());
+		usuario.setSexo(usu.getSexo());
+		usuario.setFecha_nacimiento(usu.getFecha_nacimiento());
+		usuario.setFecha_registro(usu.getFecha_registro());
+		usuario.setReserva(re);
+
+		if (usuarioService.actualizarUsuario(usuario) == null) {
 			return "redirect:/usuarios/edit?error=error&user" + usu.getId();
 		}
+
 		atribute.addFlashAttribute("edit", "Usuario ''" + usu.getUsername() + "'' editado con éxito.");
 		return "redirect:/usuarios";
+	}
+
+	@GetMapping("/usuarios/info")
+	public String infoUsuarioGet(@RequestParam(name = "user") String user,
+			@RequestParam(required = false, name = "errorEmail") String errorEmail, Model model, Principal principal) {
+
+		// Para mostrar nombre y apellidos del usuario que ha iniciado sesion
+		Usuario user2 = usuarioService.getUsuarioByUserName(principal.getName());
+		model.addAttribute("user", user2);
+		// -------------------------------------
+
+		Usuario usuario = usuarioService.findUsuarioByIdModel(Long.parseLong(user));
+		model.addAttribute("usuario", usuario);
+
+		model.addAttribute("errorEmail", errorEmail);
+
+		return "usuario/infoUsuario";
 	}
 
 	@GetMapping("/usuarios/delete")
@@ -167,6 +213,26 @@ public class UsuariosController {
 		} else {
 			return "redirect:/usuarios/";
 		}
+	}
+
+	@GetMapping("/usuarios/reservas")
+	public String reservaDeUsuario(@RequestParam(required = false, name = "codigo") String codigo,
+			@RequestParam(required = false, name = "error") String error, Model model, Principal principal) {
+
+		// Para mostrar nombre y apellidos del usuario que ha iniciado sesion
+		Usuario user2 = usuarioService.getUsuarioByUserName(principal.getName());
+		model.addAttribute("user", user2);
+		// -------------------------------------
+		if (codigo == null) {
+			return "redirect:/usuarios/";
+		}
+		Optional<Usuario> usuario = usuarioService.findUsuarioById(Long.parseLong(codigo));
+		model.addAttribute("usuario", usuario.get());
+		if (usuario.get().getReserva().size() == 0 || usuario == null) {
+			error = "error";
+			model.addAttribute("error", error);
+		}
+		return "usuario/usuarioReservas";
 	}
 
 }

@@ -1,6 +1,7 @@
 package org.iesalixar.servidor.services;
 
 import java.util.List;
+import java.util.Set;
 
 import org.iesalixar.servidor.model.Pista;
 import org.iesalixar.servidor.model.Reserva;
@@ -12,9 +13,6 @@ public interface ReservaService {
 
 	public List<Reserva> getAllReservas();
 
-//	public Reserva findUsuarioReservaById(Usuario id, Reserva id1);
-//	public void deleteUsuarioReservaById(Reserva usuarioReserva);
-
 	public Reserva findUsuarioPistaById(Usuario id, Pista id1);
 
 	public void deleteUsuarioPistaById(Reserva reserva);
@@ -23,8 +21,12 @@ public interface ReservaService {
 
 	public Reserva eliminarReserva(Reserva reserva);
 
-//	public List<Reserva> findReservasByIdAndFecha(Long id, Date fecha);
-	
 	public List<Reserva> findReservaByUsuario(Usuario usuario);
+
+	public Set<Reserva> findReservaByPista(Pista pista);
+	
+	public Set<Reserva> ReservaUsuario(Usuario usuario);
+
+//	public Reserva noInsertReserva(Reserva reserva);
 
 }

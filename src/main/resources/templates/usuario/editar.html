@@ -5,7 +5,7 @@
 <header th:insert="fragments/parts::barra"></header>
 	<div class="container mt-5">
 	<h1 class="text-center mt-3">Editar usuario: @<span th:text="${usuario.getUsername()}"/></h1>
-		<div class="col-12 col-md-6 mx-auto">
+		<div class="col-6 mx-auto">
 			<form th:action="@{/usuarios/edit}" method="post"	th:object="${usuario}">
 				<label for="id" class="form-label mt-3">Id</label>
 				<input readonly type="text" class="form-control" id="id" name="id"

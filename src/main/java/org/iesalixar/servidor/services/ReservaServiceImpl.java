@@ -2,6 +2,7 @@ package org.iesalixar.servidor.services;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import org.iesalixar.servidor.model.Pista;
 import org.iesalixar.servidor.model.Reserva;
@@ -22,10 +23,17 @@ public class ReservaServiceImpl implements ReservaService {
 			Reserva reser = reservaRepo.save(reserva);
 			return reser;
 		}
-
 		return null;
-
 	}
+
+//	@Override
+//	public Reserva noInsertReserva(Reserva reserva) {
+//		if (reserva == null) {
+//			Reserva reser = reservaRepo.save(reserva);
+//			return reser;
+//		}
+//		return null;
+//	}
 
 	@Override
 	public List<Reserva> getAllReservas() {
@@ -75,6 +83,16 @@ public class ReservaServiceImpl implements ReservaService {
 		return reservaRepo.findReservasByUsuario(usuario);
 	}
 
+	@Override
+	public Set<Reserva> findReservaByPista(Pista pista) {
+		// TODO Auto-generated method stub
+		return reservaRepo.findReservaByPista(pista);
+	}
 
+	@Override
+	public Set<Reserva> ReservaUsuario(Usuario usuario) {
+		// TODO Auto-generated method stub
+		return reservaRepo.findReservaByUsuario(usuario);
+	}
 
 }

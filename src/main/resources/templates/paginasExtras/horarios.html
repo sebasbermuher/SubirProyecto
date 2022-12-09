@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<div th:replace="fragments/bootstrap::head2(title='Horarios')" />
+	<link rel="stylesheet" type="text/css" href="static/css/horarios.css" th:href="@{/css/horarios.css}">
+
+</head>
+
+<body>
+	<header th:insert="fragments/parts::barra2"></header>
+
+	<div class="mx-auto col-md-8 col-sm-10">
+		<div class="title">
+			<h1>Horarios<span>Reserva La Pista</span></h1>
+		</div>
+		<div class="table-responsive" id="mydatatable-container">
+			<table class="records_list table table-striped table-bordered table-hover text-center" id="mydatatable">
+				<thead class="table-light">
+					<tr>
+						<th>Nombre</th>
+						<th>Deporte</th>
+						<th>Apertura</th>
+						<th>Cierre</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="p : ${pista}">
+						<td th:text="${p.getNombre()}"></td>
+						<td th:text="${p.getDeporte()}"></td>
+						<td th:text="${p.getApertura()}"></td>
+						<td th:text="${p.getCierre()}"></td>
+
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<br>
+	<br>
+
+	<div th:include="confirm-delete-dialog.html" th:remove="tag"></div>
+	<footer th:insert="fragments/parts::pie"></footer>
+</body>
+
+</html>

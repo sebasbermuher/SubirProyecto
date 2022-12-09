@@ -61,6 +61,52 @@ h1 em {
 	background-color: #f8f8f8;
 }
 
+@media screen and (max-width: 600px) {
+       table {
+           width:100%;
+       }
+       .dataTables_info{
+		   white-space: pre-line !important;
+	   }
+       thead {
+           display: none;
+       }
+       tr:nth-of-type(2n) {
+           background-color: inherit;
+       }
+       tr td:first-child {
+           background: #505050;
+           font-weight:bold;
+       }
+       tbody td{
+           display: block;
+           text-align:center;
+       }
+       tbody td:before {
+           content: attr(data-th);
+           display: block;
+           text-align:center;
+       }
+       td:nth-of-type(1):before {
+	    content: "Nombre:";
+	    font-style: oblique;
+	  }
+	  td:nth-of-type(1) {
+	   color: white !important;
+	  }
+	  td:nth-of-type(2):before {
+	    content: "Deporte:";
+	    font-style: oblique;
+	  }
+	  td:nth-of-type(3):before {
+	    content: "Apertura:";
+	     font-style: oblique;
+	  }
+	  td:nth-of-type(4):before {
+	    content: "Cierre:";
+	     font-style: oblique;
+	  }
+}
 
 
 

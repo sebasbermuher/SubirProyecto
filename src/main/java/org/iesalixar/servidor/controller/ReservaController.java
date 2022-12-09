@@ -59,10 +59,6 @@ public class ReservaController {
 		return "reserva/reservar";
 	}
 
-//	public List<Reserva> findReservas(Long idReserva, Date fechaReserva) {
-//		return reservaService.findReservasByIdAndFecha(idReserva, fechaReserva);
-//	}
-
 	@PostMapping("/reservar")
 	public String reservarPost(@ModelAttribute ReservaDTO reservaDTO, Model model, RedirectAttributes atribute) {
 
@@ -78,21 +74,22 @@ public class ReservaController {
 		SimpleMailMessage email = new SimpleMailMessage();
 
 		if (reservaService.insertReserva(reserva) == null) {
-			return "redirect:/reservar?error=Existe&Reserva=" + reservaDTO.getId_usuario() + reservaDTO.getId_pista();
-		} else {
-			email.setTo(reservaDTO.getId_usuario().getEmail());
-			email.setSubject("Reserva confirmada.");
-			email.setText("Estimado/a " + reservaDTO.getId_usuario().getNombre() + " "
-					+ reservaDTO.getId_usuario().getApellido1() + " " + reservaDTO.getId_usuario().getApellido2()
-					+ ", \nle confirmamos su reserva de la pista ''" + reservaDTO.getId_pista().getNombre() + " ("
-					+ reservaDTO.getId_pista().getDeporte() + ")'' " + " para el día " + fechaFormat
-					+ " con el siguiente tramo horario: " + reservaDTO.getHora_inicio()
-					+ ". \nGracias por usar nuestros servicios. \nReservaLaPista");
-
-			mailSender.send(email);
-			atribute.addFlashAttribute("success", "Reserva realizada con éxito.");
-			return "redirect:/misreservas";
+			return "redirect:/reservar?error=Existe&Reserva=";
 		}
+
+		email.setTo(reservaDTO.getId_usuario().getEmail());
+		email.setSubject("Reserva confirmada.");
+		email.setText("Estimado/a " + reservaDTO.getId_usuario().getNombre() + " "
+				+ reservaDTO.getId_usuario().getApellido1() + " " + reservaDTO.getId_usuario().getApellido2()
+				+ ", \nle confirmamos su reserva de la pista ''" + reservaDTO.getId_pista().getNombre() + " ("
+				+ reservaDTO.getId_pista().getDeporte() + ")'' " + " para el día " + fechaFormat
+				+ " con el siguiente tramo horario: " + reservaDTO.getHora_inicio()
+				+ ". \nGracias por usar nuestros servicios. \nReservaLaPista");
+
+		mailSender.send(email);
+		atribute.addFlashAttribute("success", "Reserva realizada con éxito.");
+
+		return "redirect:/misreservas";
 
 	}
 
@@ -186,19 +183,58 @@ public class ReservaController {
 
 	}
 
-//	@GetMapping("/reservas/delete")
-//	public String eliminarReserva(@RequestParam(required = true, name = "pista") Pista pista,
-//			@RequestParam(required = true, name = "usuario") Usuario usuario, Model model) {
-//		
-//		Reserva reserva = reservaService.findUsuarioPistaById(usuario, pista);
-//
-//		if (reserva != null) {
-//			reservaService.deleteUsuarioPistaById(reserva);
-//			return "redirect:/reservas";
-//
-//		} else {
-//			return "redirect:/reservas/";
-//		}
-//	}
+	@GetMapping("/reservas/delete")
+	public String eliminarReserva(@RequestParam(required = true, name = "rese") String rese, Model model,
+			RedirectAttributes atribute) {
+		SimpleMailMessage email = new SimpleMailMessage();
+		Reserva reserva = reservaService.findReservaByIdModel(Long.parseLong(rese));
 
+		if (reserva != null) {
+			DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+			String fechaFormat = formatter.format(reserva.getFecha());
+
+			email.setTo(reserva.getUsuario().getEmail());
+			email.setSubject("Reserva cancelada.");
+			email.setText("Estimado/a " + reserva.getUsuario().getNombre() + " " + reserva.getUsuario().getApellido1()
+					+ " " + reserva.getUsuario().getApellido2()
+					+ ", \nle confirmamos que su reserva ha sido eliminada. \n" + reserva.getPista().getNombre()
+					+ " --- " + reserva.getPista().getDeporte() + " \n" + fechaFormat + " --- "
+					+ reserva.getHora_inicio() + "\nGracias por usar nuestros servicios. \nReservaLaPista");
+
+			mailSender.send(email);
+			reservaService.eliminarReserva(reserva);
+			atribute.addFlashAttribute("warning", "Reserva eliminada con éxito.");
+
+			return "redirect:/reservas?codigo=" + rese;
+		} else {
+			return "redirect:/reservas/";
+		}
+	}
+
+	@GetMapping("/misreservas/delete")
+	public String eliminarmisReserva(@RequestParam(required = true, name = "rese") String rese, Model model,
+			RedirectAttributes atribute, Principal principal) {
+
+		SimpleMailMessage email = new SimpleMailMessage();
+		Usuario usuario = usuarioService.getUsuarioByUserName(principal.getName());
+
+		Reserva reserva = reservaService.findReservaByIdModel(Long.parseLong(rese));
+
+		DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+		String fechaFormat = formatter.format(reserva.getFecha());
+
+		email.setTo(usuario.getEmail());
+		email.setSubject("Reserva cancelada.");
+		email.setText("Estimado/a " + usuario.getNombre() + " " + usuario.getApellido1() + " " + usuario.getApellido2()
+				+ ", \nle confirmamos que su reserva ha sido eliminada. \n" + reserva.getPista().getNombre() + " --- "
+				+ reserva.getPista().getDeporte() + " \n" + fechaFormat + " --- " + reserva.getHora_inicio()
+				+ "\nGracias por usar nuestros servicios. \nReservaLaPista");
+
+		mailSender.send(email);
+		reservaService.eliminarReserva(reserva);
+		atribute.addFlashAttribute("warning", "Su reserva se ha cancelado.");
+
+		return "redirect:/misreservas?codigo=" + rese;
+
+	}
 }

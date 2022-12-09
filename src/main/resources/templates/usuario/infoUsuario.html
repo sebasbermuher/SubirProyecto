@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head th:replace="fragments/bootstrap::head(title='Info de usuario')"></head>
+
+<body>
+	<header th:insert="fragments/parts::barra"></header>
+
+	<h1 class="text-center mt-3">Información: @<span th:text="${usuario.getUsername()}" /></h1>
+	<div class="col-md-6 col-sm-12 mx-auto">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-5 col-9 mx-auto">
+					<label for="nombre" class="form-label mt-3">Id: <span th:text="${usuario.getId()}" /></label>
+				</div>
+				<div class="col-md-5 col-9 mx-auto">
+					<label for="nombre" class="form-label mt-3">Username: <span th:text="${usuario.getUsername()}" /></label>
+				</div>
+				<div class="col-md-5 col-9 mx-auto">
+					<label for="nombre" class="form-label mt-3">Nombre: <span th:text="${usuario.getNombre()}" /></label>
+				</div>
+				<div class="col-md-5 col-9 mx-auto">
+					<label for="nombre" class="form-label mt-3">1er Apellido: <span th:text="${usuario.getApellido1()}" /></label>
+				</div>
+				<div class="col-md-5 col-9 mx-auto">
+					<label for="nombre" class="form-label mt-3">2º Apellido: <span th:text="${usuario.getApellido2()}" /></label>
+				</div>
+				<div class="col-md-5 col-9 mx-auto">
+					<label for="nombre" class="form-label mt-3">Email: <span th:text="${usuario.getEmail()}" /></label>
+				</div>
+				<div class="col-md-5 col-9 mx-auto">
+					<label for="nombre" class="form-label mt-3">DNI: <span th:text="${usuario.getNif()}" /></label>
+				</div>
+				<div class="col-md-5 col-9 mx-auto">
+					<label for="nombre" class="form-label mt-3">Telefono: <span th:text="${usuario.getTelefono()}" /></label>
+				</div>
+				<div class="col-md-5 col-9 mx-auto">
+					<label for="nombre" class="form-label mt-3">Sexo: <span th:text="${usuario.getSexo()}" /></label>
+				</div>
+				<div class="col-md-5 col-9 mx-auto">
+					<label for="nombre" class="form-label mt-3">Role: <span th:text="${usuario.getRole()}" /></label>
+				</div>
+				<div class="col-md-5 col-9 mx-auto">
+					<label for="nombre" class="form-label mt-3">Fecha Nacimiento: <span th:text="${usuario.getFecha_nacimiento()}" /></label>
+				</div>
+				<div class="col-md-5 col-9 mx-auto">
+					<label for="nombre" class="form-label mt-3">Fecha Registro: <span th:text="${usuario.getFecha_registro()}" /></label>
+				</div>
+				<div class="col-md-5 col-9 mx-auto">
+					<label for="nombre" class="form-label mt-3">Localidad: <span th:text="${usuario.getLocalidad()}" /></label>
+				</div>
+				<div class="col-md-5 col-9 mx-auto">
+					<label for="nombre" class="form-label mt-3">Provincia: <span th:text="${usuario.getProvincia()}" /></label>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+	<br>
+	<br>
+	<footer th:insert="fragments/parts::pie"></footer>
+</body>
+
+</html>

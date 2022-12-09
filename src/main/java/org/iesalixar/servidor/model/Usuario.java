@@ -2,7 +2,6 @@ package org.iesalixar.servidor.model;
 
 import java.io.Serializable;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -75,10 +74,6 @@ public class Usuario implements Serializable {
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
 	private Set<Reserva> reserva = new HashSet<>();
 
-//	@PrePersist
-//	public void prePersist() {
-//		this.fecha_registro = new Date();
-//	}
 
 	public Usuario() {
 		// TODO Auto-generated constructor stub
@@ -234,30 +229,30 @@ public class Usuario implements Serializable {
 		this.reserva = reserva;
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(apellido1, apellido2, email, fecha_nacimiento, fecha_registro, id, localidad, nif, nombre,
-				password, provincia, reserva, role, sexo, telefono, username);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Usuario other = (Usuario) obj;
-		return Objects.equals(apellido1, other.apellido1) && Objects.equals(apellido2, other.apellido2)
-				&& Objects.equals(email, other.email) && Objects.equals(fecha_nacimiento, other.fecha_nacimiento)
-				&& Objects.equals(fecha_registro, other.fecha_registro) && Objects.equals(id, other.id)
-				&& Objects.equals(localidad, other.localidad) && Objects.equals(nif, other.nif)
-				&& Objects.equals(nombre, other.nombre) && Objects.equals(password, other.password)
-				&& Objects.equals(provincia, other.provincia) && Objects.equals(reserva, other.reserva)
-				&& Objects.equals(role, other.role) && Objects.equals(sexo, other.sexo)
-				&& Objects.equals(telefono, other.telefono) && Objects.equals(username, other.username);
-	}
+//	@Override
+//	public int hashCode() {
+//		return Objects.hash(apellido1, apellido2, email, fecha_nacimiento, fecha_registro, id, localidad, nif, nombre,
+//				password, provincia, reserva, role, sexo, telefono, username);
+//	}
+//
+//	@Override
+//	public boolean equals(Object obj) {
+//		if (this == obj)
+//			return true;
+//		if (obj == null)
+//			return false;
+//		if (getClass() != obj.getClass())
+//			return false;
+//		Usuario other = (Usuario) obj;
+//		return Objects.equals(apellido1, other.apellido1) && Objects.equals(apellido2, other.apellido2)
+//				&& Objects.equals(email, other.email) && Objects.equals(fecha_nacimiento, other.fecha_nacimiento)
+//				&& Objects.equals(fecha_registro, other.fecha_registro) && Objects.equals(id, other.id)
+//				&& Objects.equals(localidad, other.localidad) && Objects.equals(nif, other.nif)
+//				&& Objects.equals(nombre, other.nombre) && Objects.equals(password, other.password)
+//				&& Objects.equals(provincia, other.provincia) && Objects.equals(reserva, other.reserva)
+//				&& Objects.equals(role, other.role) && Objects.equals(sexo, other.sexo)
+//				&& Objects.equals(telefono, other.telefono) && Objects.equals(username, other.username);
+//	}
 
 	// HELPERS ELIMINAR RESERVA
 	public void removeReserva(Pista pista) {

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head th:replace="fragments/bootstrap::head(title='Cambiar Contraseña')"></head>
+
+<body>
+	<header th:insert="fragments/parts::barra"></header>
+
+	<br>
+	<ul class="nav justify-content-center">
+		<li class="nav-item">
+			<a class="nav-link" th:href="@{/ajustes}">Mis Datos</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" th:href="@{/ajustes/cambiarPassw}">Cambiar Contraseña</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link btn btn-primary btn-sm active" aria-current="page" th:href="@{/ajustes/cuenta}"
+				role="button">Eliminar Cuenta</a>
+		</li>
+	</ul>
+	<br>
+	<br>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3 col-9 mx-auto">
+
+
+				<a title="Eliminar Cuenta" type="button" class="btn btn-danger w-100 mt-3" href="#"
+					th:onclick="'javascript:confirmDelete();'">BORRAR MI CUENTA</a>
+			</div>
+		</div>
+	</div>
+	<br>
+	<br>
+	<div th:include="confirm-delete-cuenta.html" th:remove="tag"></div>
+	<footer th:insert="fragments/parts::pie"></footer>
+	<script type="text/javascript">
+		function confirmDelete(id) {
+			$('#deleteModal').modal('show');
+			$("#userIdHiddenInput").val(id);
+		}
+
+		function deleteUser() {
+			window.location = "/ajustes/eliminarCuenta";
+		}
+
+		function cerrar() {
+			$('#deleteModal').modal('hide');
+		}
+	</script>
+</body>
+
+</html>

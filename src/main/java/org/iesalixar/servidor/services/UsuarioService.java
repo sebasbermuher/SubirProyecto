@@ -1,6 +1,7 @@
 package org.iesalixar.servidor.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.iesalixar.servidor.model.Usuario;
 
@@ -15,4 +16,7 @@ public interface UsuarioService {
 	public Usuario getUsuarioByUserName(String username);
 	public Usuario getUsuarioByEmail(String email);
 	public Usuario getUsuarioByNif(String nif);
+	
+	public Optional<Usuario> findUsuarioById(Long id);
+	
 	}
