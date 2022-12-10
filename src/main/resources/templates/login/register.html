@@ -5,6 +5,7 @@
    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
    <script src="/js/login.js" defer></script>
    <body>
+   <header th:insert="fragments/parts::barraLogin"></header>
       <div class="login-page">
          <div class="form">
             <form class="register-form"  th:action="@{/register}" method="post" th:object="${userDTO}">
