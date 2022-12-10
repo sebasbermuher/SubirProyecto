@@ -14,8 +14,6 @@ public interface ReservaService {
 
 	public List<Reserva> getAllReservas();
 
-//	public Reserva findUsuarioPistaById(Usuario id, Pista id1);
-
 	public void deleteUsuarioPistaById(Reserva reserva);
 
 	public Reserva findReservaByIdModel(Long id);

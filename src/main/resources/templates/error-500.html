@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Error Reservar</title>
+	<link rel="stylesheet" type="text/css" href="static/css/titulo.css" th:href="@{/css/titulo.css}">
+	<link rel="stylesheet" type="text/css" href="static/css/500.css" th:href="@{/css/500.css}">
+</head>
+
+<body>
+	<header th:insert="fragments/parts::barra"></header>
+	<div class="title">
+		<h1>
+			Reservar Espacio<span>Reserva La Pista</span>
+		</h1>
+	</div>
+
+
+	<div class="form">
+	<div class="col-12">
+		<h5>Reserva no disponible.</h5>
+		<p>Recuerde que no puede tener dos reservas para la misma fecha y hora.</p>
+
+		<button onclick="history.back()" class="btn btn-outline-dark mb-3">VOLVER ATRÁS</button>
+	</div>
+	</div>
+	<footer th:insert="fragments/parts::pie"></footer>
+</body>
+
+</html>

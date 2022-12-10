@@ -5,28 +5,30 @@ $(document).ready(function() {
 			{
 				extend: 'pdfHtml5',
 				text: 'PDF',
-				className: 'btn-danger',
-				orientation: 'landscape',
-				title: 'Usuarios - ReservaLaPista',
+				className: 'btn-danger', 
+				messageTop: 'Todas las reservas',
+				title: 'Reservas -  ReservaLaPista',
 				exportOptions: {
-					columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+					columns: [0, 1, 2, 3, 4, 5, 6, 7]
 				},
+
 				customize: function(doc) {
 					doc.content.splice(1, 0, {
 						margin: [0, 0, 0, 12],
 						alignment: 'center',
 						image: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAutJREFUaEPdmUvrT2EQxz9/dymKpSwo2SgWUkopZGHjDSh2ViSsvQFhwcqOvAAbCylsFElsbISVrWtyvzXlp9NpnmdmnstxOcvfmZnn+5mZ53Z+c/y558do6DPA8VI5c6WOFX4Lgc8Z/yJNRU4VEOI6roQWLqwr7DABhAwR1hV2mAhkG3AnMtbfCnIYOP8/gIQTHHaIZEmxXQR8csQI6wo7OERYJtaqVaSpyMlS6nj/AVii2BXrKXZ0iJ3UpDfIaeBYhugVsLIFcU8Qay402dFnQXqAnABOVWY5rCvsYAgsqUIupFuf29AA2AHcqqxCFVALkNZVSAFltdaC5CAkdhTS8knqrQFJibwNbC+AGB7fU5cvGXNey+UuBTFMTLQaF4BDI5FaDDX50YosBj4mmngY6z2wNDj5U1pcMBGQ1cBzB4SYRKuRuxXKzv9iNO59YMvwtwiIJu4LIEfz4bMbuB6sxhHgXMbHrEoNyGNggzJ4y2oMw2dhSkEOAJcSGewFsg+4Mhrzt/4IiMRYAHwNtoDVZTuBm5bRr/fjJBWDWOP1qobWYquAl7MX0YrkQN4ByyxS5X0TDU2CJMruYZoPfPcYWjatQFYAr63BelUjtwlFNeXmxn7gciJgq0TGv7EqgtYCzzJCU5DrgSfRjKXsW2QkJVT+OpCzmeeAWc1TC7IJeGi0zT8BYolcBzztOclb7SMaiHzLki8p8lig1S3VCmQ58Gakxrpcyb4h+0fTp3aOzMTIqnVSWWbN43crmlYgmh45XGqZ7zJml6CZ+SE3zDWtqjCMkwN5AGxWBpW9Iff38sxlsrbKHVGsjwdytnqbyexkq5W1annuFblqav4bgUc92ipVEQ+E+Mpt8ZsibCtwd4pN0JojXpBoInouLOrp1wtyD5Dsjx/NXz5zeuMWdZ+WpWvAHkc0zfcqsHfqtsqtWp7saSCTr1bWqiXvczCpfj8KnB1VpOvc8IBoMDeAXUbbDRNwETjoaNNqk5/LQ3MzhpnT2AAAAABJRU5ErkJggg=='
-					}), doc.pageMargins = [10, 10, 10, 10];
+					}), doc.pageMargins = [40, 10, 10, 10];
 				}
 
 			}, {
 				extend: 'excel',
 				text: 'Excel',
 				className: 'btn-danger',
-				title: 'Usuarios - ReservaLaPista',
+				title: 'Reservas - ReservaLaPista',
 				exportOptions: {
-					columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+					columns: [0, 1, 2, 3, 4, 5, 6, 7]
 				},
+
 
 			}, , 'copy'
 		],

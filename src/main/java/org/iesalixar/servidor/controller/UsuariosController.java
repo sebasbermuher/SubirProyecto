@@ -101,33 +101,33 @@ public class UsuariosController {
 //			return "redirect:/usuarios/addUsuario?error=Existe&Usuario=" + usuarioDTO.getUsername();
 //		}
 
-		if (usuarioDTO.getPassword().length() < 5) {
-			atribute.addFlashAttribute("success", "La contraseña tiene que tener mínimo 5 caracteres.");
-			return "redirect:/usuarios/addUsuario?errorPassword=min5&caracters";
-		} else {
-			usuario = usuarioService.insertUsuario(usuario);
-
-			email.setTo(usuario.getEmail());
-			email.setSubject("Registro en ReservaLaPista confirmado.");
-			email.setText("Estimado/a " + usuario.getNombre() + " " + usuario.getApellido1() + " "
-					+ usuario.getApellido2()
-					+ ", \nle damos la bienvenida a nuestra aplicación web ''ReservaLaPista''. \nDesde ya puedes reservar nuestras pistas deportivas. \nMuchas gracias por su confianza. \nLe mandamos un cordial saludo. \nReservaLaPista.");
-
-			mailSender.send(email);
+		if (usuarioService.getUsuarioByUserName(usuarioDTO.getUsername()) != null) {
+			atribute.addFlashAttribute("success", "Usuario no disponible");
+			return "redirect:/usuarios/addUsuario?errorUsername=Existe&usuario";
+		}
+		if (usuarioService.getUsuarioByEmail(usuarioDTO.getEmail()) != null) {
+			atribute.addFlashAttribute("success", "Este email ya esta registrado.");
+			return "redirect:/usuarios/addUsuario?errorEmail=Email&registrado";
+		}
+		if (usuarioService.getUsuarioByNif(usuarioDTO.getNif()) != null) {
+			atribute.addFlashAttribute("success", "Ya existe una cuenta con este DNI.");
+			return "redirect:/usuarios/addUsuario?errorDNI=dni&registrado";
 		}
 
-		while (usuario == null) {
-			if (usuarioService.getUsuarioByUserName(usuarioDTO.getUsername()) != null) {
-				atribute.addFlashAttribute("success", "Usuario no disponible");
-				return "redirect:/usuarios/addUsuario?errorUsername=Existe&usuario=" + usuarioDTO.getUsername();
-			}
-			if (usuarioService.getUsuarioByEmail(usuarioDTO.getEmail()) != null) {
-				atribute.addFlashAttribute("success", "Este email ya esta registrado.");
-				return "redirect:/usuarios/addUsuario?errorEmail=Email&registrado";
-			}
-			if (usuarioService.getUsuarioByNif(usuarioDTO.getNif()) != null) {
-				atribute.addFlashAttribute("success", "Ya existe una cuenta con este DNI.");
-				return "redirect:/usuarios/addUsuario?errorDNI=dni&registrado=" + usuarioDTO.getNif();
+		if (usuario != null) {
+			if (usuarioDTO.getPassword().length() < 5) {
+				atribute.addFlashAttribute("success", "La contraseña tiene que tener mínimo 5 caracteres.");
+				return "redirect:/usuarios/addUsuario?errorPassword=min5&caracters";
+			} else {
+				usuario = usuarioService.insertUsuario(usuario);
+
+				email.setTo(usuario.getEmail());
+				email.setSubject("Registro en ReservaLaPista confirmado.");
+				email.setText("Estimado/a " + usuario.getNombre() + " " + usuario.getApellido1() + " "
+						+ usuario.getApellido2()
+						+ ", \nle damos la bienvenida a nuestra aplicación web ''ReservaLaPista''. \nDesde ya puedes reservar nuestras pistas deportivas. \nMuchas gracias por su confianza. \nLe mandamos un cordial saludo. \nReservaLaPista.");
+
+				mailSender.send(email);
 			}
 		}
 

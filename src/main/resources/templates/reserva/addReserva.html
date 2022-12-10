@@ -2,8 +2,8 @@
 <html>
 
 <head th:replace="fragments/bootstrap::head(title='Crear Reserva')"></head>
-<link rel="stylesheet" type="text/css" href="static/css/reservar.css" th:href="@{/css/reservar.css}">
 <link rel="stylesheet" type="text/css" href="static/css/titulo.css" th:href="@{/css/titulo.css}">
+<link rel="stylesheet" type="text/css" href="static/css/reservar.css" th:href="@{/css/reservar.css}">
 <script src="/js/reservar.js" th:href="@{/js/reservar.js}" defer></script>
 
 <body>
@@ -19,96 +19,110 @@
 			<button type="button" class="close" data-dismiss="alert">&times;</button>
 		</div>
 
-		<div class="col-6 mx-auto">
+		<div class="mx-auto col-12 col-md-7">
 
 			<form th:action="@{/reservas/addReserva}" method="post" th:object="${reservaDTO}">
-				<label for="usuario" class="form-label mt-3">Usuario</label>
-				<select name="usuario" class="form-select mt-3" th:field="*{id_usuario}">
-					<option th:each="u : ${usuario}" th:value="${u.id} "
-						th:text="${u.nombre} + ', ' +${u.apellido1} + ' ' +${u.apellido2}"></option>
-				</select>
 
-				<label for="pista" class="form-label mt-3">Pista</label>
-				<select name="pista" class="form-select mt-3" th:field="*{id_pista}">
-					<option th:each="p : ${pista}" th:value="${p.id} " th:text="${p.deporte} + ' → ' +${p.nombre}">
-					</option>
-				</select>
+				<div class="container">
+					<div class="row">
+						<div class=" mx-auto col-12 col-md-6">
+							<label for="usuario" class="form-label mt-3">Usuario</label>
+							<select name="usuario" class="form-select text-center" th:field="*{id_usuario}">
+								<option th:each="u : ${usuario}" th:value="${u.id} "
+									th:text="${u.nombre} + ', ' +${u.apellido1} + ' ' +${u.apellido2}"></option>
+							</select>
+						</div>
+						<div class=" mx-auto col-12 col-md-5">
+							<label for="pista" class="form-label mt-3">Pista</label>
+							<select name="pista" class="form-select text-center" th:field="*{id_pista}">
+								<option th:each="p : ${pista}" th:value="${p.id} "
+									th:text="${p.deporte} + ' → ' +${p.nombre}">
+								</option>
+							</select>
+						</div>
+					</div>
+				</div>
 
-				<label for="fecha" class="form-label mt-3">Fecha</label>
-				<input type="date" class="form-control" id="fecha" name="fecha" th:field="*{fecha}"
-					onchange="getFechaInput()" required>
+				<div class="mx-auto col-12 col-md-4">
+					<label for="fecha" class="form-label mt-3">Fecha</label>
+					<input type="date" class="form-control text-center" id="fecha" name="fecha" th:field="*{fecha}"
+						onchange="getFechaInput()" required>
+				</div>
 
 				<br>
-
-				<label for="hora_inicio" class="form-label mt-3">Tramo horario</label>
-				<div class="mx-auto col-9 col-sm-9 col-md-9">
-					<div class="radio-group" id="grupo">
-						<div name="boton">
-							<input rerequiredquired type="radio" id="hora_inicio" name="hora_inicio"
-								value="10:00 - 11:00" th:field="*{hora_inicio}" onclick="getHora_inicio()" />
-							<label name="labelBoton" for="opt1">10:00 - 11:00</label>
+				<div class="horas">
+					<div class="mx-auto col-12 col-md-12 col-lg-6">
+						<div class="mx-auto col-9 col-md-12 col-lg-6">
+							<label for="hora_inicio" class="form-label">Tramo horario</label>
 						</div>
-						<div name="boton">
-							<input required type="radio" id="hora_inicio" name="hora_inicio" value="11:00 - 12:00"
-								th:field="*{hora_inicio}" onclick="getHora_inicio()" />
-							<label name="labelBoton" for="opt2">11:00 - 12:00</label>
-						</div>
-						<div name="boton">
-							<input required type="radio" id="hora_inicio" name="hora_inicio" value="12:00 - 13:00"
-								th:field="*{hora_inicio}" onclick="getHora_inicio()" />
-							<label name="labelBoton" for="opt3">12:00 - 13:00</label>
-						</div>
-						<div name="boton">
-							<input required type="radio" id="hora_inicio" name="hora_inicio" value="13:00 - 14:00"
-								th:field="*{hora_inicio}" onclick="getHora_inicio()" />
-							<label name="labelBoton" for="opt4">13:00 - 14:00</label>
-						</div>
-						<div name="boton">
-							<input required type="radio" id="hora_inicio" name="hora_inicio" value="14:00 - 15:00"
-								th:field="*{hora_inicio}" onclick="getHora_inicio()" />
-							<label name="labelBoton" for="opt5">14:00 - 15:00</label>
-						</div>
-						<div name="boton">
-							<input required type="radio" id="hora_inicio" name="hora_inicio" value="15:00 - 16:00"
-								th:field="*{hora_inicio}" onclick="getHora_inicio()" />
-							<label name="labelBoton" for="opt6">15:00 - 16:00</label>
-						</div>
-						<div name="boton">
-							<input required type="radio" id="hora_inicio" name="hora_inicio" value="16:00 - 17:00"
-								th:field="*{hora_inicio}" onclick="getHora_inicio()" />
-							<label name="labelBoton" for="opt7">16:00 - 17:00</label>
-						</div>
-						<div name="boton">
-							<input required type="radio" id="hora_inicio" name="hora_inicio" value="17:00 - 18:00"
-								th:field="*{hora_inicio}" onclick="getHora_inicio()" />
-							<label name="labelBoton" for="opt8">17:00 - 18:00</label>
-						</div>
-						<div name="boton">
-							<input required type="radio" id="hora_inicio" name="hora_inicio" value="18:00 - 19:00"
-								th:field="*{hora_inicio}" onclick="getHora_inicio()" />
-							<label name="labelBoton" for="opt9">18:00 - 19:00</label>
-						</div>
-						<div name="boton">
-							<input required type="radio" id="hora_inicio" name="hora_inicio" value="19:00 - 20:00"
-								th:field="*{hora_inicio}" onclick="getHora_inicio()" />
-							<label name="labelBoton" for="opt10">19:00 - 20:00</label>
-						</div>
-						<div name="boton">
-							<input required type="radio" id="hora_inicio" name="hora_inicio" value="20:00 - 21:00"
-								th:field="*{hora_inicio}" onclick="getHora_inicio()" />
-							<label name="labelBoton" for="opt11">20:00 - 21:00</label>
-						</div>
-						<div name="boton">
-							<input required type="radio" id="hora_inicio" name="hora_inicio" value="21:00 - 22:00"
-								th:field="*{hora_inicio}" onclick="getHora_inicio()" />
-							<label name="labelBoton" for="opt12">21:00 - 22:00</label>
+						<div class="radio-group" id="grupo">
+							<div name="boton">
+								<input rerequiredquired type="radio" id="hora_inicio" name="hora_inicio"
+									value="10:00 - 11:00" th:field="*{hora_inicio}" onclick="getHora_inicio()" />
+								<label name="labelBoton" for="opt1">10:00 - 11:00</label>
+							</div>
+							<div name="boton">
+								<input required type="radio" id="hora_inicio" name="hora_inicio" value="11:00 - 12:00"
+									th:field="*{hora_inicio}" onclick="getHora_inicio()" />
+								<label name="labelBoton" for="opt2">11:00 - 12:00</label>
+							</div>
+							<div name="boton">
+								<input required type="radio" id="hora_inicio" name="hora_inicio" value="12:00 - 13:00"
+									th:field="*{hora_inicio}" onclick="getHora_inicio()" />
+								<label name="labelBoton" for="opt3">12:00 - 13:00</label>
+							</div>
+							<div name="boton">
+								<input required type="radio" id="hora_inicio" name="hora_inicio" value="13:00 - 14:00"
+									th:field="*{hora_inicio}" onclick="getHora_inicio()" />
+								<label name="labelBoton" for="opt4">13:00 - 14:00</label>
+							</div>
+							<div name="boton">
+								<input required type="radio" id="hora_inicio" name="hora_inicio" value="14:00 - 15:00"
+									th:field="*{hora_inicio}" onclick="getHora_inicio()" />
+								<label name="labelBoton" for="opt5">14:00 - 15:00</label>
+							</div>
+							<div name="boton">
+								<input required type="radio" id="hora_inicio" name="hora_inicio" value="15:00 - 16:00"
+									th:field="*{hora_inicio}" onclick="getHora_inicio()" />
+								<label name="labelBoton" for="opt6">15:00 - 16:00</label>
+							</div>
+							<div name="boton">
+								<input required type="radio" id="hora_inicio" name="hora_inicio" value="16:00 - 17:00"
+									th:field="*{hora_inicio}" onclick="getHora_inicio()" />
+								<label name="labelBoton" for="opt7">16:00 - 17:00</label>
+							</div>
+							<div name="boton">
+								<input required type="radio" id="hora_inicio" name="hora_inicio" value="17:00 - 18:00"
+									th:field="*{hora_inicio}" onclick="getHora_inicio()" />
+								<label name="labelBoton" for="opt8">17:00 - 18:00</label>
+							</div>
+							<div name="boton">
+								<input required type="radio" id="hora_inicio" name="hora_inicio" value="18:00 - 19:00"
+									th:field="*{hora_inicio}" onclick="getHora_inicio()" />
+								<label name="labelBoton" for="opt9">18:00 - 19:00</label>
+							</div>
+							<div name="boton">
+								<input required type="radio" id="hora_inicio" name="hora_inicio" value="19:00 - 20:00"
+									th:field="*{hora_inicio}" onclick="getHora_inicio()" />
+								<label name="labelBoton" for="opt10">19:00 - 20:00</label>
+							</div>
+							<div name="boton">
+								<input required type="radio" id="hora_inicio" name="hora_inicio" value="20:00 - 21:00"
+									th:field="*{hora_inicio}" onclick="getHora_inicio()" />
+								<label name="labelBoton" for="opt11">20:00 - 21:00</label>
+							</div>
+							<div name="boton">
+								<input required type="radio" id="hora_inicio" name="hora_inicio" value="21:00 - 22:00"
+									th:field="*{hora_inicio}" onclick="getHora_inicio()" />
+								<label name="labelBoton" for="opt12">21:00 - 22:00</label>
+							</div>
 						</div>
 					</div>
 				</div>
 				<h6 class="text-danger" th:if="${error!=null}" th:text="${'Error en la reserva'}"></h6>
 
 				<div class="mx-auto col-8 col-sm-8 col-md-4">
-					<input type="submit" class="btn btn-primary w-100 mt-3" value="RESERVAR" />
+					<input type="submit" class="btn btn-dark w-100 mt-3" value="RESERVAR" />
 				</div>
 			</form>
 		</div>

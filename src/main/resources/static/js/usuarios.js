@@ -8,6 +8,3 @@ for (var i = 0; i < fechaDOM.length; i++) {
 
 	fechaDOM[i].innerHTML = dia + "/" + mes + "/" + año
 }
-
-
-

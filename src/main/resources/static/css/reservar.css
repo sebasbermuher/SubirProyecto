@@ -31,3 +31,14 @@ input[type=radio] {
   color: #fff;
 }
 
+.horas{
+	margin-left: 3%;
+}
+
+@media screen and (max-width: 600px) {
+	  .horas{
+	margin-left: 8% !important;
+}
+}
+
+

@@ -27,7 +27,6 @@ public class ReservaServiceImpl implements ReservaService {
 		return null;
 	}
 
-
 	@Override
 	public List<Reserva> getAllReservas() {
 		List<Reserva> reserva = reservaRepo.findAll();
@@ -36,17 +35,6 @@ public class ReservaServiceImpl implements ReservaService {
 		}
 		return new ArrayList<Reserva>();
 	}
-
-//	@Override
-//	public Reserva findUsuarioPistaById(Usuario id, Pista id1) {
-////		if (id != null && id1 != null) {
-////
-////			Reserva reserva = (Reserva) reservaRepo.findByUsuarioPista(id, id1);
-////			return reserva;
-////		}
-//
-//		return null;
-//	}
 
 	@Override
 	public void deleteUsuarioPistaById(Reserva reserva) {

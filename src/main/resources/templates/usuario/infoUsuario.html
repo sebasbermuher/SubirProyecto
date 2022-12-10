@@ -6,75 +6,109 @@
 
 <body>
 	<header th:insert="fragments/parts::barra"></header>
-	<div class="mx-auto col-12">
-		<div class="title">
-			<h1>Información<span th:text="'@'+${usuario.getUsername()}" /></h1>
-		</div>
-		<div class="col-md-6 col-sm-12 mx-auto">
+
+	<div class="title">
+		<h1>Información<span th:text="'@'+${usuario.getUsername()}" /></h1>
+	</div>
+
+	<div class="mx-auto col-12 col-md-10">
+		<button onclick="history.back()" class="btn btn-outline-dark mb-3">VOLVER ATRÁS</button>
+		<div class="col-12 col-md-12 mx-auto">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-5 col-9 mx-auto">
+					<div class=" mx-auto col-12 col-md-4 text-center">
 						<label for="nombre" class="form-label mt-3">Id: <span th:text="${usuario.getId()}" /></label>
 					</div>
-					<div class="col-md-5 col-9 mx-auto">
+					<div class=" mx-auto col-12 col-md-4 text-center">
 						<label for="nombre" class="form-label mt-3">Username: <span
 								th:text="${usuario.getUsername()}" /></label>
 					</div>
-					<div class="col-md-5 col-9 mx-auto">
+					<div class=" mx-auto col-12 col-md-4 text-center">
 						<label for="nombre" class="form-label mt-3">Nombre: <span
 								th:text="${usuario.getNombre()}" /></label>
 					</div>
-					<div class="col-md-5 col-9 mx-auto">
+				</div>
+
+				<div class="row">
+					<div class=" mx-auto col-12 col-md-4 text-center">
 						<label for="nombre" class="form-label mt-3">1er Apellido: <span
 								th:text="${usuario.getApellido1()}" /></label>
 					</div>
-					<div class="col-md-5 col-9 mx-auto">
+					<div class=" mx-auto col-12 col-md-4 text-center">
 						<label for="nombre" class="form-label mt-3">2º Apellido: <span
 								th:text="${usuario.getApellido2()}" /></label>
 					</div>
-					<div class="col-md-5 col-9 mx-auto">
+					<div class=" mx-auto col-12 col-md-4 text-center">
 						<label for="nombre" class="form-label mt-3">Email: <span
 								th:text="${usuario.getEmail()}" /></label>
+
 					</div>
-					<div class="col-md-5 col-9 mx-auto">
+				</div>
+
+				<div class="row">
+					<div class=" mx-auto col-12 col-md-4 text-center">
 						<label for="nombre" class="form-label mt-3">DNI: <span th:text="${usuario.getNif()}" /></label>
 					</div>
-					<div class="col-md-5 col-9 mx-auto">
+					<div class=" mx-auto col-12 col-md-4 text-center">
 						<label for="nombre" class="form-label mt-3">Telefono: <span
 								th:text="${usuario.getTelefono()}" /></label>
 					</div>
-					<div class="col-md-5 col-9 mx-auto">
+					<div class=" mx-auto col-12 col-md-4 text-center">
 						<label for="nombre" class="form-label mt-3">Sexo: <span
 								th:text="${usuario.getSexo()}" /></label>
+
 					</div>
-					<div class="col-md-5 col-9 mx-auto">
+				</div>
+
+				<div class="row">
+					<div class=" mx-auto col-12 col-md-4 text-center">
 						<label for="nombre" class="form-label mt-3">Role: <span
 								th:text="${usuario.getRole()}" /></label>
 					</div>
-					<div class="col-md-5 col-9 mx-auto">
-						<label for="nombre" class="form-label mt-3">Fecha Nacimiento: <span
+					<div class=" mx-auto col-12 col-md-4 text-center">
+						<label for="nombre" class="form-label mt-3">Fecha Nacimiento: <span name="fechaNac"
 								th:text="${usuario.getFecha_nacimiento()}" /></label>
 					</div>
-					<div class="col-md-5 col-9 mx-auto">
+					<div class=" mx-auto col-12 col-md-4 text-center">
 						<label for="nombre" class="form-label mt-3">Fecha Registro: <span
 								th:text="${usuario.getFecha_registro()}" /></label>
+
 					</div>
-					<div class="col-md-5 col-9 mx-auto">
+				</div>
+
+				<div class="row">
+					<div class=" mx-auto col-12 col-md-4 text-center">
 						<label for="nombre" class="form-label mt-3">Localidad: <span
 								th:text="${usuario.getLocalidad()}" /></label>
 					</div>
-					<div class="col-md-5 col-9 mx-auto">
+					<div class=" mx-auto col-12 col-md-4 text-center">
 						<label for="nombre" class="form-label mt-3">Provincia: <span
 								th:text="${usuario.getProvincia()}" /></label>
 					</div>
+					<div class=" mx-auto col-12 col-md-4 text-center">
+					</div>
 
 				</div>
+
+
 			</div>
 		</div>
 	</div>
 	<br>
 	<br>
 	<footer th:insert="fragments/parts::pie"></footer>
+	<script type="text/javascript">
+		let fechaDOM = document.getElementsByName("fechaNac")
+
+		for (var i = 0; i < fechaDOM.length; i++) {
+			const fecha = fechaDOM[i].innerHTML
+			const año = fecha.split('-')[0]
+			const mes = fecha.split('-')[1]
+			const dia = fecha.split('-')[2]
+
+			fechaDOM[i].innerHTML = dia + "/" + mes + "/" + año
+		}
+	</script>
 </body>
 
 </html>

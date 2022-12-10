@@ -37,7 +37,7 @@ public class PistasController {
 
 	@Autowired
 	ReservaService reService;
-	
+
 	@Autowired
 	private JavaMailSender mailSender;
 
@@ -81,7 +81,8 @@ public class PistasController {
 		pista.setCierre(pistaDTO.getCierre());
 
 		if (pistaService.insertPista(pista) == null) {
-			return "redirect:/pistas/addPista?error=Existe&NombrePista=" + pistaDTO.getNombre();
+			atribute.addFlashAttribute("success", "ERROR. Ya existe una pista con este nombre.");
+			return "redirect:/pistas/addPista?error=Existe&NombrePista";
 		}
 
 		atribute.addFlashAttribute("success", "Pista ''" + pistaDTO.getNombre() + "'' guardada con éxito.");
@@ -115,6 +116,12 @@ public class PistasController {
 		pista.setCierre(pi.getCierre());
 		pista.setReserva(re);
 
+		if(pistaService.getPistaByName(pi.getNombre())!=null) {
+			atribute.addFlashAttribute("danger", "Error al modificar el nombre de la pista. Ya existe una pista llamada '"+ pi.getNombre()+"'");
+			return "redirect:/pistas";
+		}
+		
+		
 		if (pistaService.actualizarPista(pista) == null) {
 //			-------------------------------------------------
 //		if (pistaService.actualizarPista(pi) == null) {
@@ -188,6 +195,5 @@ public class PistasController {
 		return "redirect:/pistas";
 
 	}
-
 
 }

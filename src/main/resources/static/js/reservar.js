@@ -16,7 +16,7 @@ document.querySelector('#fecha').max = fechaMax;
 
 
 //----------------------------
-
+//Recoge la hora del input que esta seleccionado
 $(document).on('change', 'input[type="radio"]', function(e) {
 	if (this.id == "hora_inicio") {
 		console.log((this.value))
@@ -41,7 +41,8 @@ function getHora_inicio() {
 
 
 let dia = new Date();
-let horaActual = dia.toLocaleString().split(',')[1].substring(1, 3);
+let horaActual = dia.toString().split(' ')[4].split(':')[0]
+
 
 let grupo = document.getElementsByName("hora_inicio");
 let labelBoton = document.getElementsByName("labelBoton");
@@ -54,7 +55,7 @@ function getFechaInput() {
 
 	for (var i = 0; i < fechaElement.length; i++) {
 		const fecha = fechaElement[i].value
-		console.log(fecha)
+		console.log("ESTA" + fecha)
 		if (diaActual === fecha) {
 			//CAMBIAR COLOR A LOS LABEL QUE YA HA PASADO LA HORA
 			for (var i = 0; i < labelBoton.length; i++) {
@@ -84,31 +85,16 @@ function getFechaInput() {
 					labelBoton[i].style.color = "";
 				}
 			}
+			//	QUITAR DISABLE A LOS INPUTS
+			grupo.forEach((element) => {
+				const values = element.defaultValue.substring(0, 2)
+
+				if (values <= horaActual) {
+					//console.log(values)
+					element.disabled = false;
+				}
+			})
 		}
-		//	QUITAR DISABLE A LOS INPUTS
-		grupo.forEach((element) => {
-			const values = element.defaultValue.substring(0, 2)
 
-			if (values <= horaActual) {
-				//console.log(values)
-				element.disabled = false;
-			}
-		})
 	}
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -11,71 +11,114 @@
 			<h1>Editrar Usuario <span th:text="${'@'+usuario.getUsername()}" /></h1>
 		</div>
 
-		<div class="col-12 col-md-4 mx-auto">
+		<div class="col-12 col-md-12 mx-auto">
 			<form th:action="@{/usuarios/edit}" method="post" th:object="${usuario}">
-				<label for="id" class="form-label mt-3">Id</label>
-				<input readonly type="text" class="form-control" id="id" name="id" th:field="*{id}">
+				<div class="container">
+					<div class="row">
+						<div class=" mx-auto col-12 col-md-4">
+							<label for="id" class="form-label mt-3">Id</label>
+							<input readonly type="text" class="form-control" id="id" name="id" th:field="*{id}">
 
-				<label for="nombre" class="form-label mt-3">Nombre</label>
-				<input type="text" class="form-control" id="nombre" name="nombre" th:field="*{nombre}" required>
+						</div>
+						<div class=" mx-auto col-12 col-md-4">
+							<label for="nombre" class="form-label mt-3">Nombre</label>
+							<input type="text" class="form-control" id="nombre" name="nombre" th:field="*{nombre}"
+								required>
+						</div>
 
-				<label for="apellido1" class="form-label mt-3">Primer apellido</label>
-				<input type="text" class="form-control" id="apellido1" name="apellido1" th:field="*{apellido1}"
-					required>
+						<div class=" mx-auto col-12 col-md-4">
+							<label for="apellido1" class="form-label mt-3">Primer apellido</label>
+							<input type="text" class="form-control" id="apellido1" name="apellido1"
+								th:field="*{apellido1}" required>
+						</div>
+					</div>
 
-				<label for="apellido2" class="form-label mt-3">Segundo apellido</label>
-				<input type="text" class="form-control" id="apellido2" name="apellido2" th:field="*{apellido2}"
-					required>
+					<div class="row">
+						<div class=" mx-auto col-12 col-md-4">
+							<label for="apellido2" class="form-label mt-3">Segundo apellido</label>
+							<input type="text" class="form-control" id="apellido2" name="apellido2"
+								th:field="*{apellido2}" required>
+						</div>
+						<div class=" mx-auto col-12 col-md-4">
+							<label for="username" class="form-label mt-3">Usuario</label>
+							<input readonly type="text" class="form-control" id="username" name="username"
+								th:field="*{username}" required>
+						</div>
 
-				<label for="username" class="form-label mt-3">Usuario</label>
-				<input readonly type="text" class="form-control" id="username" name="username" th:field="*{username}"
-					required>
+						<div class=" mx-auto col-12 col-md-4">
+							<label for="email" class="form-label mt-3">Email</label>
+							<input readonly type="email" class="form-control" id="email" name="email"
+								th:field="*{email}" required>
+						</div>
+					</div>
 
-				<input type="text" class="form-control" style="display: none !important" id="password" name="password"
-					th:field="*{password}" required>
+					<div class="row">
+						<div class=" mx-auto col-12 col-md-4">
+							<label for="role" class="form-label mt-3">Role</label>
+							<select class="form-select" id="role" name="role" th:field="*{role}">
+								<option value="ROLE_USER">ROLE_USER</option>
+								<option value="ROLE_ADMIN">ROLE_ADMIN</option>
+							</select>
+						</div>
+						<div class=" mx-auto col-12 col-md-4">
+							<label for="nif" class="form-label mt-3">DNI</label>
+							<input readonly type="text" pattern="[0-9]{8}[A-Za-z]{1}"
+								title="Debe poner 8 números y una letra" class="form-control" id="nif" name="nif"
+								th:field="*{nif}" required>
+						</div>
 
+						<div class=" mx-auto col-12 col-md-4">
+							<label for="localidad" class="form-label mt-3">Localidad</label>
+							<input type="text" class="form-control" id="localidad" name="localidad"
+								th:field="*{localidad}" required>
+						</div>
+					</div>
 
-				<label for="email" class="form-label mt-3">Email</label>
-				<input readonly type="email" class="form-control" id="email" name="email" th:field="*{email}" required>
+					<div class="row">
+						<div class=" mx-auto col-12 col-md-4">
+							<label for="provincia" class="form-label mt-3">Provincia</label>
+							<input type="text" class="form-control" id="provincia" name="provincia"
+								th:field="*{provincia}" required>
+						</div>
+						<div class=" mx-auto col-12 col-md-4">
+							<label for="telefono" class="form-label mt-3">Telefono</label>
+							<input type="tel" pattern="[0-9]{9}" title="Debe poner 9 digitos" class="form-control"
+								id="telefono" name="telefono" th:field="*{telefono}" required>
+						</div>
 
-				<label for="role" class="form-label mt-3">Role</label>
-				<select class="form-select" id="role" name="role" th:field="*{role}">
-					<option value="ROLE_USER">ROLE_USER</option>
-					<option value="ROLE_ADMIN">ROLE_ADMIN</option>
-				</select>
+						<div class=" mx-auto col-12 col-md-4">
+							<label for="sexo" class="form-label mt-3">Sexo</label>
+							<select class="form-select" id="sexo" name="sexo" th:field="*{sexo}">
+								<option value="Hombre">Hombre</option>
+								<option value="Mujer">Mujer</option>
+							</select>
+						</div>
+					</div>
 
-				<label for="nif" class="form-label mt-3">DNI</label>
-				<input readonly type="text" pattern="[0-9]{8}[A-Za-z]{1}" title="Debe poner 8 números y una letra"
-					class="form-control" id="nif" name="nif" th:field="*{nif}" required>
+					<div class="row">
+						<div class=" mx-auto col-12 col-md-4">
+							<label for="fecha_nacimiento" class="form-label mt-3">Fecha de nacimiento</label>
+							<input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento"
+								th:field="*{fecha_nacimiento}" required>
+						</div>
+						<div class=" mx-auto col-12 col-md-4">
+							<label for="fecha_registro" class="form-label mt-3">Fecha de registro: </label>
+							<input readonly type="text" class="form-control" id="fecha_registro" name="fecha_registro"
+								th:field="*{fecha_registro}">
+						</div>
+						<div class=" mx-auto col-12 col-md-4">
+							<input type="text" class="form-control" style="display: none !important" id="password"
+								name="password" th:field="*{password}" required>
+						</div>
+					</div>
 
-				<label for="localidad" class="form-label mt-3">Localidad</label>
-				<input type="text" class="form-control" id="localidad" name="localidad" th:field="*{localidad}"
-					required>
+				</div>
 
-				<label for="provincia" class="form-label mt-3">Provincia</label>
-				<input type="text" class="form-control" id="provincia" name="provincia" th:field="*{provincia}"
-					required>
-
-				<label for="telefono" class="form-label mt-3">Telefono</label>
-				<input type="tel" pattern="[0-9]{9}" title="Debe poner 9 digitos" class="form-control" id="telefono"
-					name="telefono" th:field="*{telefono}" required>
-
-				<label for="sexo" class="form-label mt-3">Sexo</label>
-				<select class="form-select" id="sexo" name="sexo" th:field="*{sexo}">
-					<option value="Hombre">Hombre</option>
-					<option value="Mujer">Mujer</option>
-				</select>
-
-				<label for="fecha_nacimiento" class="form-label mt-3">Fecha de nacimiento</label>
-				<input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento"
-					th:field="*{fecha_nacimiento}" required>
-
-				<label for="fecha_registro" class="form-label mt-3">Fecha de registro: </label>
-				<input readonly type="text" class="form-control" id="fecha_registro" name="fecha_registro"
-					th:field="*{fecha_registro}">
-
-
-				<input type="submit" class="btn btn-primary w-100 mt-3" value="EDITAR" />
+				<br>
+				
+				<div class="mx-auto col-10  col-md-3">
+					<input type="submit" class="btn btn-dark w-100 mt-3" value="EDITAR" />
+				</div>
 			</form>
 		</div>
 	</div>
