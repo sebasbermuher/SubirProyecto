@@ -85,7 +85,7 @@ public class PistasController {
 			return "redirect:/pistas/addPista?error=Existe&NombrePista";
 		}
 
-		atribute.addFlashAttribute("success", "Pista ''" + pistaDTO.getNombre() + "'' guardada con éxito.");
+		atribute.addFlashAttribute("success", "Se ha añadido una nueva pista. ''" + pistaDTO.getNombre() + "'' guardada con éxito.");
 		return "redirect:/pistas";
 
 	}
