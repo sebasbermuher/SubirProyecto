@@ -8,18 +8,24 @@ html{
     height: 100%;
 }
 
-body{
-	font-family: 'Open Sans', sans-serif;
-    display: flex;
-    flex-direction: column;
-    min-height: 100%;
-}
 
 a{
     text-decoration: none;
 }
 
+.icons{
+	margin-left: -4%;
+}
+
+.menu{
+	margin-left: -6%;
+}
+
 footer{
+	font-family: 'Open Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
     background-color: #272727;
     text-align: center;
     text-transform: uppercase;

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head th:replace="fragments/bootstrap::head(title='Acceso Denegado')"></head>
+<link rel="stylesheet" type="text/css" href="static/css/forbidden.css" th:href="@{/css/forbidden.css}">
+
+<body>
+	<div class="text-wrapper">
+		<div class="title" data-content="404">
+			ACCESO DENEGADO
+		</div>
+
+		<div class="subtitle">
+			No tienes permisos.
+		</div>
+		<div class="isi">
+			Necesitas permiso de admininstrador para poder acceder a esta página.
+		</div>
+
+		<div class="buttons">
+			<a class="button" th:href="@{/menu}">Volver a Inicio</a>
+		</div>
+	</div>
+</body>
+
+</html>
