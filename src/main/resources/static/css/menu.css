@@ -127,7 +127,8 @@ option{
 }
 
 body {
-	background: url(../img/background.jpg) no-repeat center center fixed;
+	background: url(../img/background.jpg) no-repeat center center;
+	background-attachment: fixed;
 	background-size: cover;
 	/*font-family: "Roboto", sans-serif;*/
 	-webkit-font-smoothing: antialiased;
@@ -135,7 +136,7 @@ body {
 }
 
 @media screen and (max-width: 600px) {
-	  body{
-		  background-size: none !important;
-	   }
+	  body {
+		 background-attachment: no fixed;
+}
 }
