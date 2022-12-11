@@ -13,14 +13,6 @@ a{
     text-decoration: none;
 }
 
-.icons{
-	margin-left: -4%;
-}
-
-.menu{
-	margin-left: -6%;
-}
-
 footer{
 	font-family: 'Open Sans', sans-serif;
     display: flex;
@@ -71,4 +63,20 @@ footer li{
 
 .footer-copyright p{
     margin-bottom: 0px;
+}
+
+.icons{
+	margin-left: -4%;
+}
+
+.menu{
+	margin-left: -6%;
+}
+
+
+@media screen and (max-width: 600px) {
+	  .icons{
+		  margin-left: -8% !important;
+}
+
 }
