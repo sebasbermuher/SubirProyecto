@@ -137,6 +137,6 @@ body {
 
 @media screen and (max-width: 600px) {
 	  body {
-		 background-attachment: no fixed;
+		 background-attachment: no fixed !important;
 }
 }
