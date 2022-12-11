@@ -99,7 +99,6 @@ public class ReservaController {
 				+ ". \nGracias por usar nuestros servicios. \nReservaLaPista");
 
 		mailSender.send(email);
-
 		// no muestra mensaje de confirmacion en pantalla de 'Mis reservas'
 		atribute.addFlashAttribute("success", "Reserva realizada con éxito.");
 		// nos redirecciona a la pantalla de 'Mis reservas'
