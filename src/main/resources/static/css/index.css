@@ -127,7 +127,6 @@ option{
 }
 
 body {
-	background: url(../img/background.jpg) no-repeat center center fixed;
 	background-size: cover;
 	/*font-family: "Roboto", sans-serif;*/
 	-webkit-font-smoothing: antialiased;
