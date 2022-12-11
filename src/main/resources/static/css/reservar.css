@@ -23,8 +23,7 @@ input[type=radio] {
   height: 100%;
   line-height: 2em;
   pointer-events: none;
-  font-weight: bold;
-}
+  }
 
 .radio-group input[type=radio]:checked + label {
   background: #85EA8E;
