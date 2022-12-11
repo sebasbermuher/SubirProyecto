@@ -22,14 +22,14 @@ for (var i = 0; i < fechaDOM.length; i++) {
 	if (fecha < diaActual) {
 		estado[i].innerHTML = "JUGADO"
 		estado[i].style.backgroundColor = "#FB6C63"
-		estado[i].style.fontWeight = "bold"
+		estado[i].style.textAlign = "center"
 		eliminar[i].style.display = "none"
 	}
 
 	if (fecha > diaActual) {
 		estado[i].innerHTML = "POR JUGAR"
 		estado[i].style.backgroundColor = "#85EA8E"
-		estado[i].style.fontWeight = "bold"
+		estado[i].style.textAlign = "center"
 
 	}
 
@@ -37,19 +37,19 @@ for (var i = 0; i < fechaDOM.length; i++) {
 		if (horaActual >= horasInicio) {
 			estado[i].innerHTML = "EN JUEGO"
 			estado[i].style.backgroundColor = "#FBF663"
-			estado[i].style.fontWeight = "bold"
+			estado[i].style.textAlign = "center"
 			eliminar[i].style.display = "none"
 			if (horaActual > horasFin) {
 				estado[i].innerHTML = "JUGADO"
 				estado[i].style.backgroundColor = "#FB6C63"
-				estado[i].style.fontWeight = "bold"
+				estado[i].style.textAlign = "center"
 				eliminar[i].style.display = "none"
 			}
 
 		} else{
 			estado[i].innerHTML = "POR JUGAR"
 			estado[i].style.backgroundColor = "#85EA8E"
-			estado[i].style.fontWeight = "bold"
+			estado[i].style.textAlign = "center"
 		}
 
 	}
