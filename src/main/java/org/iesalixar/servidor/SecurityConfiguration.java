@@ -57,11 +57,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 		
     	http.authorizeRequests()
         .antMatchers(resources).permitAll()  
+        //El usuario que no este registrado solo podrá ver estas paginas
         .antMatchers("/","/login","/register").permitAll()
-		.antMatchers("/usuarios","/usuarios/addUsuario","/usuarios/edit","/usuarios/delete").hasRole("ADMIN")
-		.antMatchers("/pistas","/pistas/addPista","/pistas/edit","/pistas/delete").hasRole("ADMIN")
-		.antMatchers("/reservas").hasRole("ADMIN")
-		.antMatchers("/menu").authenticated()
+        //autorizamos solo a los usuarios con role admin para las siguiente direcciones (pantallas admin)
+		.antMatchers("/usuarios","/usuarios/addUsuario","/usuarios/edit","/usuarios/delete", "/usuarios/info","/usuarios/reservas","/usuarios/reservas/delete").hasRole("ADMIN")
+		.antMatchers("/pistas","/pistas/addPista","/pistas/edit","/pistas/delete","/pistas/reservas","/pistas/reservas/delete").hasRole("ADMIN")
+		.antMatchers("/reservas","/reservas/addReserva", "reservas/delete").hasRole("ADMIN")
             .anyRequest().authenticated()
             .and()
         .formLogin()
@@ -75,6 +76,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
             .csrf().disable()
         .logout()
             .permitAll()
+            // se elimina la cookie de session y nos redirige al login con el mensaje de cierre de sesion
             .deleteCookies("JSESSIONID")
             .logoutSuccessUrl("/login?logout");
 	}

@@ -2,7 +2,6 @@ package org.iesalixar.servidor.model;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -97,21 +96,6 @@ public class Reserva implements Serializable {
 
 	public void setHora_inicio(String hora_inicio) {
 		this.hora_inicio = hora_inicio;
-	}
-
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Reserva other = (Reserva) obj;
-		return Objects.equals(fecha, other.fecha) && Objects.equals(hora_inicio, other.hora_inicio)
-				&& Objects.equals(id, other.id) && Objects.equals(pista, other.pista)
-				&& Objects.equals(usuario, other.usuario);
 	}
 
 }

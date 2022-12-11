@@ -11,7 +11,6 @@ public class ReservaDTO {
 	private Pista id_pista;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date fecha;
-//	@DateTimeFormat(pattern = "hh:mm tt")
 	private String hora_inicio;
 
 	public ReservaDTO() {

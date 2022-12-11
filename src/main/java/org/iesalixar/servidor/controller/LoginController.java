@@ -28,6 +28,9 @@ public class LoginController {
 	@Autowired
 	private JavaMailSender mailSender;
 
+//	-----------------------------------------------------
+//	LOGIN
+//	-----------------------------------------------------
 	// Mapeado multiple del login
 	@RequestMapping({ "/", "/login" })
 	public String login(Model model, Principal principal) {
@@ -39,7 +42,10 @@ public class LoginController {
 		// -------------------------------------
 		return "login/index";
 	}
-
+	
+//	-----------------------------------------------------
+//	REGISTRO
+//	-----------------------------------------------------
 	@GetMapping("/register")
 	public String registerGet(@RequestParam(required = false, name = "errorUsername") String errorUsername,
 			@RequestParam(required = false, name = "errorEmail") String errorEmail,
@@ -82,14 +88,11 @@ public class LoginController {
 		String fechaActual = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
 		userBD.setFecha_registro(fechaActual);
 
-		// Inicializamos el modelo email
+		// Inicializamos la clase email email
 		SimpleMailMessage email = new SimpleMailMessage();
 
-		// Mientras el usuario el nulo
-
 		// Si el username introducido ya está registrado en la base de datos, nos
-		// muestra
-		// un error
+		// muestra un error
 		if (usuarioService.getUsuarioByUserName(usuario.getUsername()) != null) {
 			return "redirect:/register?errorUsername=Existe&usuario";
 		}
@@ -129,7 +132,10 @@ public class LoginController {
 		return "redirect:/";
 	}
 
-	// Mapeamos la direccion y nos redirige a la pantalla
+	
+//	-----------------------------------------------------
+//	PANTALLA MENU
+//	-----------------------------------------------------
 	@RequestMapping({ "/menu" })
 	public String menu(Model model, Principal principal) {
 
@@ -140,5 +146,4 @@ public class LoginController {
 
 		return "menu/menu";
 	}
-
 }

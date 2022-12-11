@@ -19,6 +19,11 @@ public class MyErrorController implements ErrorController {
 	@Autowired
 	UsuarioServiceImpl usuarioService;
 
+	
+//	-----------------------------------------------------
+//	PANTALLAS ERRORES
+//	-----------------------------------------------------
+//	Pantallas de errores personalizada
 	@RequestMapping("/error")
 	public String handleError(HttpServletRequest request, Model model, Principal principal) {
 		// Para mostrar nombre y apellidos del usuario que ha iniciado sesion
@@ -38,7 +43,7 @@ public class MyErrorController implements ErrorController {
 				return "forbidden";
 			}
 		}
-		return "error";
+		return "error-404";
 	}
 
 }

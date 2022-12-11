@@ -22,18 +22,18 @@
 		<form th:action="@{/pistas/edit}" method="post" th:object="${pista}">
 			<div class="container">
 				<div class="row">
-					<div class=" mx-auto col-12 col-md-3 text-center">
+					<div class=" mx-auto col-10 col-md-3 text-center">
 						<label for="id" class="form-label mt-3">Id</label>
 						<input type="text" class="form-control" id="id" name="id" th:field="*{id}" readonly>
 					</div>
 
 				</div>
 				<div class="row">
-					<div class=" mx-auto col-12 col-md-5 text-center">
+					<div class=" mx-auto col-10 col-md-5 text-center">
 						<label for="nombre" class="form-label mt-3">Nombre</label>
 						<input type="text" class="form-control" id="nombre" name="nombre" th:field="*{nombre}" required>
 					</div>
-					<div class=" mx-auto col-12 col-md-5 text-center">
+					<div class=" mx-auto col-10 col-md-5 text-center">
 						<label for="deporte" class="form-label mt-3">Deporte</label>
 						<input type="text" class="form-control" id="deporte" name="deporte" th:field="*{deporte}"
 							required>
@@ -41,12 +41,12 @@
 				</div>
 
 				<div class="row">
-					<div class=" mx-auto col-12 col-md-3 text-center">
+					<div class=" mx-auto col-10 col-md-3 text-center">
 						<label for="apertura" class="form-label mt-3">Hora de apertura</label>
 						<input type="time" class="form-control" id="apertura" name="apertura" th:field="*{apertura}"
 							required>
 					</div>
-					<div class=" mx-auto col-12 col-md-3 text-center">
+					<div class=" mx-auto col-10 col-md-3 text-center">
 						<label for="cierre" class="form-label mt-3">Hora de cierre</label>
 						<input type="time" class="form-control" id="cierre" name="cierre" th:field="*{cierre}" required>
 					</div>

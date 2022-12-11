@@ -47,6 +47,9 @@ public class AjustesController {
 		Usuario user2 = usuarioService.getUsuarioByUserName(principal.getName());
 		model.addAttribute("user", user2);
 		// -------------------------------------
+
+		// creamos modelos para recoger el usuario que tiene iniciada sesion, y para
+		// mostrar error (string)
 		model.addAttribute("usuario", user2);
 		model.addAttribute("error", error);
 
@@ -56,8 +59,11 @@ public class AjustesController {
 	@PostMapping("/ajustes")
 	public String ajustesDatosPost(@ModelAttribute Usuario usu, RedirectAttributes atribute) {
 
+		// recogemos las reservas del usuario, para que cuando editemos el usuario,
+		// tambien se actualice en los datos usuarios de la reserva
 		Set<Reserva> re = reService.ReservaUsuario(usu);
 
+		// creamos el usuario y le introducimos los datos
 		Usuario usuario = new Usuario();
 		usuario.setId(usu.getId());
 		usuario.setNombre(usu.getNombre());
@@ -76,10 +82,12 @@ public class AjustesController {
 		usuario.setFecha_registro(usu.getFecha_registro());
 		usuario.setReserva(re);
 
+		// nos redirecciona a error si el usuario no esta bien editado
 		if (usuarioService.actualizarUsuario(usuario) == null) {
 			atribute.addFlashAttribute("warning", "Error al editar el usuario.");
 			return "redirect:/ajustes?error=error&user";
 		}
+		// si todo ha ido bien, nos redirecciona con mensaje de exito
 		atribute.addFlashAttribute("edit", "Usuario ''" + usu.getUsername() + "'' editado con éxito.");
 		return "redirect:/ajustes";
 	}
@@ -97,6 +105,8 @@ public class AjustesController {
 		model.addAttribute("user", user);
 		// -------------------------------------
 
+		// creamos modelos para recoger el usuario que tiene iniciada sesion, y para
+		// mostrar error (string)
 		model.addAttribute("usuario", user);
 		model.addAttribute("error", error);
 
@@ -106,8 +116,11 @@ public class AjustesController {
 	@PostMapping("/ajustes/cambiarPassw")
 	public String cambiarPasswPost(@ModelAttribute Usuario usu, RedirectAttributes atribute) {
 
+		// recogemos las reservas del usuario, para que cuando editemos el usuario,
+		// tambien se actualice en los datos usuarios de la reserva
 		Set<Reserva> re = reService.ReservaUsuario(usu);
 
+		// creamos el usuario y le introducimos los datos
 		Usuario usuario = new Usuario();
 		usuario.setId(usu.getId());
 		usuario.setNombre(usu.getNombre());
@@ -126,15 +139,19 @@ public class AjustesController {
 		usuario.setFecha_registro(usu.getFecha_registro());
 		usuario.setReserva(re);
 
+		// si el tamaño de la cotraseña es menor de 5 nos mostrara un error
 		if (usu.getPassword().length() < 5) {
 			atribute.addFlashAttribute("warning", "La contraseña tiene que tener mínimo 5 caracteres.");
 			return "redirect:/ajustes/cambiarPassw?error=min5&caracters";
 		}
 
+		// si al actualizar el usuario es null nos mostrara error
 		if (usuarioService.actualizarUsuario(usuario) == null) {
 			atribute.addFlashAttribute("warning", "Error al editar el usuario.");
 			return "redirect:/ajustes/cambiarPassw?error=error&user";
 		}
+
+		// si todo ha ido bien, nos redirecciona con mensaje de exito
 		atribute.addFlashAttribute("edit", "Su contraseña se ha actualizado correctamente.");
 		return "redirect:/ajustes/cambiarPassw";
 	}
@@ -156,8 +173,10 @@ public class AjustesController {
 	public String eliminarUsuario(Model model, RedirectAttributes atribute, Principal principal) {
 
 		SimpleMailMessage email = new SimpleMailMessage();
+		// cogemos el username del usuario en sesion mediante la clase 'principal'
 		Usuario usuario = usuarioService.getUsuarioByUserName(principal.getName());
 
+		// si el usuario no es nulo, enviamos un email al email del usuario
 		if (usuario != null) {
 			email.setTo(usuario.getEmail());
 			email.setSubject("Confirmación cuenta eliminada.");
@@ -167,8 +186,9 @@ public class AjustesController {
 
 			mailSender.send(email);
 
+			// eliminamos el usuario
 			usuarioService.eliminarUsuario(usuario);
-			atribute.addFlashAttribute("warning", "Usuario ''" + usuario.getUsername() + "'' eliminado con éxito.");
+			// no redirecciona a logout
 			return "redirect:/logout";
 		} else {
 			return "redirect:/ajustes/eliminarCuenta/";

@@ -65,9 +65,10 @@ footer li{
 
 .footer-copyright p{
     margin-bottom: 0px;
+    margin-left: -3%;
 }
 
-.icons , .footer-copyright{
+.icons{
 	margin-left: -4%;
 }
 

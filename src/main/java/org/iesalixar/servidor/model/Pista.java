@@ -89,30 +89,5 @@ public class Pista implements Serializable {
 		this.reserva = reserva;
 	}
 
-//	@Override
-//	public int hashCode() {
-//		return Objects.hash(apertura, cierre, deporte, id, nombre, reserva);
-//	}
-//
-//	@Override
-//	public boolean equals(Object obj) {
-//		if (this == obj)
-//			return true;
-//		if (obj == null)
-//			return false;
-//		if (getClass() != obj.getClass())
-//			return false;
-//		Pista other = (Pista) obj;
-//		return Objects.equals(apertura, other.apertura) && Objects.equals(cierre, other.cierre)
-//				&& Objects.equals(deporte, other.deporte) && Objects.equals(id, other.id)
-//				&& Objects.equals(nombre, other.nombre) && Objects.equals(reserva, other.reserva);
-//	}
-
-	// HELPERS ELIMINAR RESERVA
-	public void removeReserva(Usuario usuario) {
-		Reserva reserva = new Reserva();
-		usuario.getReserva().remove(reserva);
-		this.reserva.remove(reserva);
-	}
 
 }
