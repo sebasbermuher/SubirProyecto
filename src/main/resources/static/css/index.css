@@ -135,7 +135,10 @@ body {
 }
 
 @media screen and (max-width: 600px) {
-	  body {
-	background: url(../img/background.jpg) !important;
-}
-}
+	footer{
+    background-color: #272727;
+    text-align: center;
+    text-transform: uppercase;
+    padding-top: 30px;
+    margin-top: auto;
+}}
