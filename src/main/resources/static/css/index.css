@@ -133,3 +133,9 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+
+@media screen and (max-width: 600px) {
+	 footer{
+		 margin-bottom: 0%;
+	 }
+}
