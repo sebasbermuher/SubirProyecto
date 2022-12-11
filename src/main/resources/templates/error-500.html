@@ -1,15 +1,11 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-	<meta charset="UTF-8">
-	<title>Error Reservar</title>
-	<link rel="stylesheet" type="text/css" href="static/css/titulo.css" th:href="@{/css/titulo.css}">
-	<link rel="stylesheet" type="text/css" href="static/css/500.css" th:href="@{/css/500.css}">
-</head>
-
+<head th:replace="fragments/bootstrap::head2(title='Error Reservar')"></head>
+<link rel="stylesheet" type="text/css" href="static/css/titulo.css" th:href="@{/css/titulo.css}">
+<link rel="stylesheet" type="text/css" href="static/css/500.css" th:href="@{/css/500.css}">
 <body>
-	<header th:insert="fragments/parts::barra"></header>
+	<header th:insert="fragments/parts::barra2"></header>
 	<div class="title">
 		<h1>
 			Reservar Espacio<span>Reserva La Pista</span>
