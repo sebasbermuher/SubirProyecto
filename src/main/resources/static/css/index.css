@@ -133,12 +133,3 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
-
-@media screen and (max-width: 600px) {
-	footer{
-    background-color: #272727;
-    text-align: center;
-    text-transform: uppercase;
-    padding-top: 30px;
-    margin-top: auto;
-}}
