@@ -1,6 +1,5 @@
 @media screen and (max-width: 600px) {
-	  li:nth-child(1), .dataTables_info{
+	  table > tbody >tr > td>ul>li:nth-child(1), .dataTables_info{
 		  white-space: pre-line !important;
 	  }
 }
-
