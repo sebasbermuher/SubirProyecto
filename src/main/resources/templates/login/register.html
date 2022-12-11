@@ -20,7 +20,7 @@
                <input type="text" class="form-control" id="apellido2" name="apellido2" th:field="*{apellido2}" required placeholder="Segundo Apellido">
                <input type="text" pattern="[0-9]{8}[A-Za-z]{1}" class="form-control" id="nif" name="nif" th:field="*{nif}" required placeholder="DNI">	
                <h6 class="text-danger" th:if="${errorDNI!=null}" th:text="${'Ya existe una cuenta con este DNI.'}"></h6>
-               <input type="date" class="form-control date" id="fecha_nacimiento" name="fecha_nacimiento" th:field="*{fecha_nacimiento}" required>
+               <input type="date" class="form-control date" id="fecha_nacimiento" name="fecha_nacimiento" th:field="*{fecha_nacimiento}" required placeholder="Fecha Nacimiento">
                <select id="sexo" name="sexo" th:field="*{sexo}">
                   <option value="" hidden selected>Sexo</option>
                   <option value="Hombre">Hombre</option>
