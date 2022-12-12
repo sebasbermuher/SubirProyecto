@@ -3,7 +3,7 @@ let dia = new Date()
 // extraemos solo el dia de la fecha (dia)
 let diaActual = dia.toISOString().substring(0, 10)
 // extraemos la hora y los minutos de la fecha actual (ej-> 12:15)
-let horaActual = dia.toLocaleString().split(',')[1].substring(1, 6)
+let horaActual = dia.toString().split(' ')[4].split(':')[0]
 
 // recogemos los siguientes elementos del documento html
 let fechaDOM = document.getElementsByName("fecha")
