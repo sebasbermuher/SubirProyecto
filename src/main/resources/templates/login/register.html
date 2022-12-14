@@ -4,6 +4,7 @@
    <link rel="stylesheet" type="text/css" href="static/css/index.css" th:href="@{/css/index.css}">
    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
    <script src="/js/login.js" defer></script>
+   <script src="/js/login.js" defer></script>
    <body>
    <header th:insert="fragments/parts::barraLogin"></header>
       <div class="login-page">
@@ -11,7 +12,12 @@
             <form class="register-form"  th:action="@{/register}" method="post" th:object="${userDTO}">
                <input type="text" class="form-control" id="username" name="username" th:field="*{username}" required placeholder="Usuario">
                <h6 class="text-danger" th:if="${errorUsername!=null}" th:text="${'Usuario no disponible.'}"></h6>
-               <input type="password" class="form-control" id="password" name="password" th:field="*{password}" required placeholder="Contraseña">
+                
+                <input type="password" placeholder="Contraseña" id="password" name="password" th:field="*{password}" class="inputlogin form-control"/>
+                  <div class="input-group-prepend">
+                     <a><span onclick="myFunction()" class="input-group-text inputlogin"><i id="ojo" class="bi bi-eye"></i></span></a>
+                  </div>
+               
                <h6 class="text-danger" th:if="${errorPassword!=null}" th:text="${'La contraseña tiene que tener mínimo 5 caracteres.'}"></h6>
                <input type="email" class="form-control" id="email" name="email" th:field="*{email}" required placeholder="Email">
                <h6 class="text-danger" th:if="${errorEmail!=null}" th:text="${'Este email ya esta registrado.'}"></h6>
