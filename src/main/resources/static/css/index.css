@@ -10,7 +10,7 @@
 }
 
 .boton_ojo {
-	height: 30px;
+	height: 30px !important;
 }
 
 input.form-control:focus{
