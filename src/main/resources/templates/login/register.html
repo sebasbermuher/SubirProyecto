@@ -15,7 +15,7 @@
                <div class="input-group">
                   <input type="password" class="form-control" id="password" name="password" th:field="*{password}" required placeholder="Contraseña">
                   <div class="input-group-prepend">
-                     <a><span onclick="myFunction()" class="input-group-text inputlogin boton_ojo"><i id="ojo" class="bi bi-eye"></i></span></a>
+                     <a><span onclick="myFunction()" class="input-group-text boton_ojo"><i id="ojo" class="bi bi-eye"></i></span></a>
                   </div>
                </div>
                <h6 class="text-danger" th:if="${errorPassword!=null}" th:text="${'La contraseña tiene que tener mínimo 5 caracteres.'}"></h6>
