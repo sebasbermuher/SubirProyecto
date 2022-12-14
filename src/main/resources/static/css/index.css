@@ -9,6 +9,10 @@
 	height: 50px;
 }
 
+.boton_ojo {
+	height: 30px;
+}
+
 input.form-control:focus{
 	outline: none !important;
 	outline-width: 0 !important;
