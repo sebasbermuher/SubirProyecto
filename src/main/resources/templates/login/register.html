@@ -18,8 +18,6 @@
                      <a><span onclick="myFunction()" class="input-group-text inputlogin"><i id="ojo" class="bi bi-eye"></i></span></a>
                   </div>
                </div>
-               <br>
-               <br>
                <h6 class="text-danger" th:if="${errorPassword!=null}" th:text="${'La contraseña tiene que tener mínimo 5 caracteres.'}"></h6>
                <input type="email" class="form-control" id="email" name="email" th:field="*{email}" required placeholder="Email">
                <h6 class="text-danger" th:if="${errorEmail!=null}" th:text="${'Este email ya esta registrado.'}"></h6>
