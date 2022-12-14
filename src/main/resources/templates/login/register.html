@@ -11,9 +11,7 @@
             <form class="register-form"  th:action="@{/register}" method="post" th:object="${userDTO}">
                <input type="text" class="form-control" id="username" name="username" th:field="*{username}" required placeholder="Usuario">
                <h6 class="text-danger" th:if="${errorUsername!=null}" th:text="${'Usuario no disponible.'}"></h6>
-               
-               <input type="password" class="form-control" id="password" name="password" th:field="*{password}" required placeholder="Contraseña">
-               
+                             
                <div class="input-group">
                   <input type="password" class="form-control" id="password" name="password" th:field="*{password}" required placeholder="Contraseña">
                   <div class="input-group-prepend">
